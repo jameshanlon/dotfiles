@@ -8,18 +8,24 @@ DOTFILES="\
   ctags \
   ycm.py"
 
+if ! [ $PWD = $HOME/dotfiles ]; then
+  echo "Expecting doftiles in $HOME"
+  exit 1
+fi
+
 echo "Installing in $HOME"
 echo "Changing to $DIR"
 cd $DIR
 
 for f in $DOTFILES; do
+  p="$HOME/.$f"
   # Make a copy of a dotfile, otherwise delete it
-  if ! [ -h "$HOME/.$f" ]; then
+  if ! [ -f $p ] && ! [ -L $p ]; then
     echo "Backing up existing dotfile '~/.$f'"
     date=$(date +"%Y%m%d%H%M%S")
-    mv $HOME/.$f $HOME/.$f.old.$date
+    mv $p $p.old.$date
   else
-    rm $HOME/.$f
+    rm -f $p
   fi
   # Make symlink
   echo "Creating symlink to '$f' in ~/"
