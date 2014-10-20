@@ -4,8 +4,9 @@ set -e
 DIR=~/dotfiles
 DOTFILES="\
   vimrc \
-  gvimrc
-  ctags"
+  gvimrc \
+  ctags \
+  ycm.py"
 
 echo "Installing in $HOME"
 echo "Changing to $DIR"

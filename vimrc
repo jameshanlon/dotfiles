@@ -46,13 +46,20 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Ctrl+] open def in a vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '$HOME/.ycm.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_extra_conf_vim_data = ['&filetype']
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_enable_diagnostic_signs = 0
+
 " Colours
 set t_Co=256     " Enable 256-colour mode
 
 " Misc options
 syntax on
+set encoding=utf-8
 set backspace=indent,eol,start
-set encoding=utf8
 set textwidth=79
 set laststatus=2 " Always show the status line
 set wildmenu     " Enchanced command-line completion
@@ -83,7 +90,7 @@ au InsertEnter * syntax match WhitespaceEOL /\s\+\%#\@<!$/
 au InsertLeave * syntax match WhitespaceEOL /\s\+$/
 
 " Highlight lines <80 characters
-set colorcolumn=81
+" set colorcolumn=81
 
 " Spell check with tex files
 let g:tex_flavor = "latex"
