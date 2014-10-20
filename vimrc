@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/powerline-fonts'
@@ -28,20 +29,35 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
+map <C-b> :NERDTreeFromBookmark
+map <C-f> :NERDTreeFind<cr>
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " Airline
 let g:airline_powerline_fonts = 1
 
+" Ctags
+" Look up recursively for a tag file
+set tags=./tags;/
+" Ctrl+\ open def in new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Ctrl+] open def in a vertical split
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Colours
+set t_Co=256     " Enable 256-colour mode
+
 " Misc options
 syntax on
-set t_Co=256     " Enable 256-colour mode
 set backspace=indent,eol,start
-set wildmenu     " Enchanced command-line completion
-set laststatus=2 " Always show the status line
-set ruler        " Display position in rhs of status bar
-set showmode
 set encoding=utf8
 set textwidth=79
+set laststatus=2 " Always show the status line
+set wildmenu     " Enchanced command-line completion
+set ruler        " Display position in rhs of status bar
+set showmode
 set showmatch    " Show matching parentheses
 
 " Tabs
@@ -60,8 +76,11 @@ set incsearch    " Highlight as you type
 set noswapfile
 
 " Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
+highlight LongLine ctermbg=red guibg=red
+highlight WhitespaceEOL ctermbg=red guibg=red
+au BufRead,BufNewFile * syntax match LongLine /\%>80v.\+/
+au InsertEnter * syntax match WhitespaceEOL /\s\+\%#\@<!$/
+au InsertLeave * syntax match WhitespaceEOL /\s\+$/
 
 " Highlight lines <80 characters
 set colorcolumn=81
@@ -71,14 +90,19 @@ let g:tex_flavor = "latex"
 let g:tex_comment_nospell= 1
 
 " Tab mappings
-map Oc :tabnext<CR>
-map Od :tabprevious<CR>
-map ^[O5C :tabnext<CR>
-map ^[O5D :tabprevious<CR>
-map ^[[1;5C :tabnext<CR>
-map ^[[1;5D :tabprevious<CR>
-map ^[[D :tabprevious<CR>
-map ^[[C :tabnext<CR>
+" See `:h hidden` for more details
+set hidden
+" To open a new empty buffer
+nmap <leader>T :enew<cr>
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
@@ -110,4 +134,8 @@ augroup END
 
 augroup filetype
   au! BufRead,BufNewFile *.rst set filetype=rest
+augroup END
+
+augroup filetype
+  au! BufRead,BufNewFile *.xc     set filetype=xc
 augroup END
