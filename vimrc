@@ -15,6 +15,7 @@ Plugin 'Shougo/vimshell.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/powerline-fonts'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 
