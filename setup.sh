@@ -20,7 +20,7 @@ cd $DIR
 for f in $DOTFILES; do
   p="$HOME/.$f"
   # Make a copy of a dotfile, otherwise delete it
-  if ! [ -f $p ] && ! [ -L $p ]; then
+  if [ -f $p ] && ! [ -L $p ]; then
     echo "Backing up existing dotfile '~/.$f'"
     date=$(date +"%Y%m%d%H%M%S")
     mv $p $p.old.$date
