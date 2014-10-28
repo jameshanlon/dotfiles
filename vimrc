@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/powerline-fonts'
@@ -48,14 +49,11 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '$HOME/.ycm.py'
+let g:ycm_global_ycm_extra_conf = $HOME.'/.ycm.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_extra_conf_vim_data = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_enable_diagnostic_signs = 0
-
-" Colours
-set t_Co=256     " Enable 256-colour mode
 
 " Misc options
 syntax on
@@ -83,7 +81,11 @@ set hlsearch     " Highlight search phrases
 set incsearch    " Highlight as you type
 set noswapfile
 
+" Colours
+set t_Co=256     " Enable 256-colour mode
+
 " Highlight trailing whitespace
+hi Search cterm=NONE ctermfg=grey ctermbg=blue 
 highlight LongLine ctermbg=red guibg=red
 highlight WhitespaceEOL ctermbg=red guibg=red
 au BufRead,BufNewFile * syntax match LongLine /\%>80v.\+/
@@ -145,5 +147,5 @@ augroup filetype
 augroup END
 
 augroup filetype
-  au! BufRead,BufNewFile *.xc     set filetype=xc
+  au! BufRead,BufNewFile *.xc set filetype=xc
 augroup END
