@@ -11,8 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/vimshell.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/powerline-fonts'
 Plugin 'tpope/vim-fugitive'
