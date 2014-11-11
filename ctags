@@ -1,3 +1,7 @@
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+
 --langdef=latex
 --langmap=latex:.tex
 --regex-latex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
