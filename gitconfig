@@ -1,0 +1,17 @@
+[user]
+	name = James Hanlon
+	email = jameswhanlon@gmail.com
+[core]
+  editor = vim
+  filemode = true
+  logallrefupdates = true
+  autocrlf = input
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[merge]
+  summary = true
+[push]
+  default = current
+

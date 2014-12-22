@@ -5,6 +5,7 @@ DIR=~/dotfiles
 DOTFILES="\
   vimrc \
   gvimrc \
+  gitconfig \
   ctags \
   ycm.py"
 
