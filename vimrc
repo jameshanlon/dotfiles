@@ -16,7 +16,7 @@ Plugin 'Lokaltog/powerline-fonts'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()         " required
 filetype plugin indent on " required
@@ -37,6 +37,10 @@ nmap <F8> :TagbarToggle<CR>
 
 " Airline
 let g:airline_powerline_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Ctags
 " Look up recursively for a tag file
@@ -63,6 +67,8 @@ set wildmenu     " Enchanced command-line completion
 set ruler        " Display position in rhs of status bar
 set showmode
 set showmatch    " Show matching parentheses
+set pastetoggle=<F2>
+set nowrap
 
 " Tabs
 set tabstop=2
@@ -78,12 +84,16 @@ set smartindent
 set hlsearch     " Highlight search phrases
 set incsearch    " Highlight as you type
 set noswapfile
+" Always search forward
+nnoremap <expr> n 'Nn'[v:searchforward]
+nnoremap <expr> N 'nN'[v:searchforward]
 
 " Colours
 set t_Co=256     " Enable 256-colour mode
 
 " Highlight trailing whitespace
-hi Search cterm=NONE ctermfg=grey ctermbg=blue 
+hi Search cterm=NONE ctermfg=grey ctermbg=blue
+hi SpellBad ctermfg=None ctermbg=DarkRed
 highlight LongLine ctermbg=red guibg=red
 highlight WhitespaceEOL ctermbg=red guibg=red
 au BufRead,BufNewFile * syntax match LongLine /\%>80v.\+/
@@ -97,8 +107,9 @@ au InsertLeave * syntax match WhitespaceEOL /\s\+$/
 let g:tex_flavor = "latex"
 let g:tex_comment_nospell= 1
 
-" Tab mappings
-" See `:h hidden` for more details
+" Buffers
+" This allows buffers to be hidden if you've modified a buffer.
+" This is almost a must if you wish to use buffers in this way.
 set hidden
 " To open a new empty buffer
 nmap <leader>T :enew<cr>
@@ -107,7 +118,6 @@ nmap <leader>l :bnext<CR>
 " Move to the previous buffer
 nmap <leader>h :bprevious<CR>
 " Close the current buffer and move to the previous one
-" This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
@@ -146,4 +156,8 @@ augroup END
 
 augroup filetype
   au! BufRead,BufNewFile *.xc set filetype=xc
+augroup END
+
+augroup filetype
+  au! BufRead,BufNewFile *.sire set filetype=sire
 augroup END
