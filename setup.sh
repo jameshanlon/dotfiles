@@ -6,8 +6,7 @@ DOTFILES="\
   vimrc \
   gvimrc \
   gitconfig \
-  ctags \
-  ycm.py"
+  ctags"
 
 if ! [ $PWD = $HOME/dotfiles ]; then
   echo "Expecting doftiles in $HOME"
