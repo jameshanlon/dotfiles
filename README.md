@@ -10,3 +10,7 @@ mv git-prompt.sh .gitprompt.sh
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+su
+cd ~/.vim/bundle/powerline-fonts
+./install.sh
