@@ -16,7 +16,6 @@ Plugin 'Lokaltog/powerline-fonts'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()         " required
 filetype plugin indent on " required
@@ -38,7 +37,7 @@ nmap <F8> :TagbarToggle<CR>
 " Airline
 let g:airline_powerline_fonts = 1
 " Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
@@ -50,14 +49,8 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Ctrl+] open def in a vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" YouCompleteMe
-let g:ycm_global_ycm_extra_conf = $HOME.'/.ycm.py'
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_extra_conf_vim_data = ['&filetype']
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_enable_diagnostic_signs = 0
-
 " Misc options
+colorscheme default
 syntax on
 set encoding=utf-8
 set backspace=indent,eol,start
