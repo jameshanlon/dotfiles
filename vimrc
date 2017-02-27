@@ -16,6 +16,8 @@ Plugin 'Lokaltog/powerline-fonts'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'kien/ctrlp.vim'
+Plugin 'nachumk/systemverilog.vim'
+Plugin 'vim-scripts/rcs.vim'
 
 call vundle#end()         " required
 filetype plugin indent on " required
@@ -25,21 +27,29 @@ filetype plugin indent on " required
 " Ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'r'
 
 " Nerdtree
-map <C-n> :NERDTreeToggle<CR>
-map <C-b> :NERDTreeFromBookmark
-map <C-f> :NERDTreeFind<cr>
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-b> :NERDTreeFromBookmark<CR>
+nmap <C-f> :NERDTreeFind<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" Buffers
+set hidden
+nmap <C-t> :enew<CR>
+nmap <C-s> :bnext<CR>
+nmap <C-a> :bprevious<CR>
+nmap <C-d> <C-6><CR>
+nmap <C-x>bq :bp <BAR> bd #<CR> " Close current buffer and move to previous one
+nmap <C>bl :ls<CR>              " Show all open buffers and their status
+
 " Airline
 let g:airline_powerline_fonts = 1
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 0
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#enabled = 1     " Enable the list of buffers
+let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 
 " Ctags
 " Look up recursively for a tag file
@@ -48,6 +58,10 @@ set tags=./tags;/
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Ctrl+] open def in a vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Spell check with tex files
+let g:tex_flavor = "latex"
+let g:tex_comment_nospell= 1
 
 " Misc options
 colorscheme default
@@ -62,27 +76,28 @@ set showmode
 set showmatch    " Show matching parentheses
 set pastetoggle=<F2>
 set nowrap
-
 " Tabs
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-
 " Indentation
 set autoindent
 set smartindent
-
 " Search
 set hlsearch     " Highlight search phrases
 set incsearch    " Highlight as you type
 set noswapfile
+" Colours
+set t_Co=256     " Enable 256-colour mode
+
 " Always search forward
 nnoremap <expr> n 'Nn'[v:searchforward]
 nnoremap <expr> N 'nN'[v:searchforward]
 
-" Colours
-set t_Co=256     " Enable 256-colour mode
+" Reselect visual block after indent.
+vnoremap < <gv
+vnoremap > >gv
 
 " Highlight trailing whitespace
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
@@ -94,26 +109,8 @@ au InsertEnter * syntax match WhitespaceEOL /\s\+\%#\@<!$/
 au InsertLeave * syntax match WhitespaceEOL /\s\+$/
 
 " Highlight lines <80 characters
-" set colorcolumn=81
-
-" Spell check with tex files
-let g:tex_flavor = "latex"
-let g:tex_comment_nospell= 1
-
-" Buffers
-" This allows buffers to be hidden if you've modified a buffer.
-" This is almost a must if you wish to use buffers in this way.
-set hidden
-" To open a new empty buffer
-nmap <leader>T :enew<cr>
-" Move to the next buffer
-nmap <leader>l :bnext<CR>
-" Move to the previous buffer
-nmap <leader>h :bprevious<CR>
-" Close the current buffer and move to the previous one
-nmap <leader>bq :bp <BAR> bd #<CR>
-" Show all open buffers and their status
-nmap <leader>bl :ls<CR>
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=236 guibg=#DDDDDD
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
