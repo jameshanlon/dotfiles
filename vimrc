@@ -15,7 +15,7 @@ Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/powerline-fonts'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'nachumk/systemverilog.vim'
 Plugin 'vim-scripts/rcs.vim'
 
@@ -31,7 +31,6 @@ let g:ctrlp_working_path_mode = 'r'
 
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
-nmap <C-b> :NERDTreeFromBookmark<CR>
 nmap <C-f> :NERDTreeFind<CR>
 
 " Tagbar
@@ -39,12 +38,11 @@ nmap <F8> :TagbarToggle<CR>
 
 " Buffers
 set hidden
-nmap <C-t> :enew<CR>
-nmap <C-s> :bnext<CR>
-nmap <C-a> :bprevious<CR>
-nmap <C-d> <C-6><CR>
-nmap <C-x>bq :bp <BAR> bd #<CR> " Close current buffer and move to previous one
-nmap <C>bl :ls<CR>              " Show all open buffers and their status
+nmap <C-b>  :enew<CR>           " New buffer
+nmap <C-b>d :bp <BAR> bd #<CR>  " Close current buffer and move to previous one
+nmap <C-s>  :bnext<CR>          " Next buffer
+nmap <C-a>  :bprevious<CR>      " Previous buffer
+nmap <C-d>  <C-6><CR>           " Go to last used buffer
 
 " Airline
 let g:airline_powerline_fonts = 1
