@@ -27,33 +27,33 @@ $ sudo mount -t vboxsf -o rw,uid=1000,gid=1000 VBoxShare ~/VBoxShare
 
 ### Buffers
 
-`Ctrl+b`    New buffer
-`Ctrl+b`d   Delete buffer
-`Ctrl+a`    Previous buffer
-`Ctrl+s`    Next buffer
-`Ctrl+d`    Last recently used buffer
-`:ls`       List open buffers
+- `Ctrl+b`    New buffer
+- `Ctrl+b`d   Delete buffer
+- `Ctrl+a`    Previous buffer
+- `Ctrl+s`    Next buffer
+- `Ctrl+d`    Last recently used buffer
+- `:ls`       List open buffers
 
 ### NERDTree
 
-`Ctrl+n`    Toggle
-`Ctrl+f`    Find
+- `Ctrl+n`    Toggle
+- `Ctrl+f`    Find
 
 ### Ctags
 
-`Ctrl+[`    Follow tag
-`Ctrl+t`    Back
+- `Ctrl+[`    Follow tag
+- `Ctrl+t`    Back
 
 ### Commands
 
-`:DeleteTrailingWhitespace`
-`:Untab`
+- `:DeleteTrailingWhitespace`
+- `:Untab`
 
 ### Macros
 
-Record: `q<letter> ... <commands> ... q`
-Replay: `<repeats>@<letter>`
-`@@` plays the last used macro.
+- Record: `q<letter> ... <commands> ... q`
+- Replay: `<repeats>@<letter>`
+- `@@` plays the last used macro.
 
 E.g.
 ```
@@ -65,9 +65,9 @@ q
 
 ### g
 
-`:g/pattern/d`         Delete all lines matching a pattern.
-`:g!/pattern/d`        Delete all lines not matching a pattern.
-`:g/pattern/t$`        Copy all lines matching a pattern to end of the file.
-`:g/pattern/m$`        Move all lines matching a pattern to end of the file.
-`:g/pattern/normal @q` Run a macro on matching lines.
-`:g/^/m0`              Revese a file.
+- `:g/pattern/d`         Delete all lines matching a pattern.
+- `:g!/pattern/d`        Delete all lines not matching a pattern.
+- `:g/pattern/t$`        Copy all lines matching a pattern to end of the file.
+- `:g/pattern/m$`        Move all lines matching a pattern to end of the file.
+- `:g/pattern/normal @q` Run a macro on matching lines.
+- `:g/^/m0`              Revese a file.
