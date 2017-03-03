@@ -1,6 +1,6 @@
 [user]
-	name = James Hanlon
-	email = jamie@graphcore.ai
+  name = James Hanlon
+  email = mail@jwhanlon.com
 [core]
   editor = vim
   filemode = true
@@ -14,4 +14,3 @@
   summary = true
 [push]
   default = current
-
