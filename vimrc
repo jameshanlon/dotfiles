@@ -10,14 +10,15 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/powerline-fonts'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'nachumk/systemverilog.vim'
 Plugin 'vim-scripts/rcs.vim'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'tpope/vim-fugitive'
 
 call vundle#end()         " required
 filetype plugin indent on " required
@@ -26,8 +27,10 @@ filetype plugin indent on " required
 
 " Ctrlp
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_by_filename = 1 " Search by filename
+
 
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
@@ -44,10 +47,14 @@ nmap <C-s>  :bnext<CR>          " Next buffer
 nmap <C-a>  :bprevious<CR>      " Previous buffer
 nmap <C-d>  <C-6><CR>           " Go to last used buffer
 
+" Buffergator
+let g:buffergator_viewport_split_policy='n' " Open in current viewport
+nmap <C-o> :BuffergatorOpen<CR>
+
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1     " Enable the list of buffers
-let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
+"let g:airline#extensions#tabline#enabled = 1     " Enable the list of buffers
+"let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 
 " Ctags
 " Look up recursively for a tag file

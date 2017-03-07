@@ -32,7 +32,7 @@ $ sudo mount -t vboxsf -o rw,uid=1000,gid=1000 VBoxShare ~/VBoxShare
 - `Ctrl+a`    Previous buffer
 - `Ctrl+s`    Next buffer
 - `Ctrl+d`    Last recently used buffer
-- `:ls`       List open buffers
+- `Ctrl+o`    Browse buffers (Buffergator)
 
 ### NERDTree
 
