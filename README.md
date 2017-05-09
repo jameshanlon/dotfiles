@@ -16,6 +16,13 @@ $ mkdir ~/VBoxShare
 $ sudo mount -t vboxsf -o rw,uid=1000,gid=1000 VBoxShare ~/VBoxShare
 ```
 
+Run ssh-agent:
+```
+$ eval `ssh-agent`
+$ ssh-add
+...
+```
+
 ## Vim keys
 
 ### CtrlP
@@ -32,7 +39,19 @@ $ sudo mount -t vboxsf -o rw,uid=1000,gid=1000 VBoxShare ~/VBoxShare
 - `Ctrl+a`    Previous buffer
 - `Ctrl+s`    Next buffer
 - `Ctrl+d`    Last recently used buffer
-- `Ctrl+o`    Browse buffers (Buffergator)
+
+### Buffergator
+
+`Ctrl+o`, then:
+- `Ctrl+V` Open buffer in vertical split
+- `Ctrl+S` Open buffer in horizontal split
+- `Ctrl+T` Open buffer in new tab
+- `gb`     Switch between most-recently used buffers
+- `cs`     Cycle between sorts
+- `cs`     Cycle between displays
+- `r`      Refresh
+- `d`      Delete a buffer
+- `q`      Quit
 
 ### NERDTree
 

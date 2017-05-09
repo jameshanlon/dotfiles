@@ -32,7 +32,6 @@ let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_by_filename = 1 " Search by filename
 
-
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
@@ -65,12 +64,7 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Ctrl+] open def in a vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" Spell check with tex files
-let g:tex_flavor = "latex"
-let g:tex_comment_nospell= 1
-
 " Misc options
-colorscheme default
 syntax on
 set encoding=utf-8
 set backspace=indent,eol,start
@@ -115,8 +109,8 @@ au InsertEnter * syntax match WhitespaceEOL /\s\+\%#\@<!$/
 au InsertLeave * syntax match WhitespaceEOL /\s\+$/
 
 " Highlight lines <80 characters
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=236 guibg=#DDDDDD
+"let &colorcolumn=join(range(81,999),",")
+"highlight ColorColumn ctermbg=230 guibg=#DDDDDD
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
