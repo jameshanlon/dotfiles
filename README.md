@@ -8,6 +8,9 @@ $ sudo apt-get install git vim vim-gtk
 $ ssh-keygen -t rsa -b 4096 -C "email..."
 $ cd dotfiles
 $ bash setup.sh
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+$ vim -c ":PlugInstall"
 ```
 
 Mount a VirtualBox shared folder:
@@ -24,6 +27,8 @@ $ ssh-add
 ```
 
 ## Vim keys
+
+- `:e **/<name>` Open file with <name> from any directory.
 
 ### CtrlP
 

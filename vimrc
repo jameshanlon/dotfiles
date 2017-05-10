@@ -1,43 +1,24 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle configuration
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible " be iMproved, required
-filetype off     " required
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-
-" Plugins
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'Lokaltog/powerline-fonts'
-Plugin 'tpope/vim-git'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'airblade/vim-gitgutter.git'
-Plugin 'nachumk/systemverilog.vim'
-Plugin 'vim-scripts/rcs.vim'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'tpope/vim-fugitive'
-
-call vundle#end()         " required
-filetype plugin indent on " required
-"filetype plugin on " Or, ignore plugin indent changes
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'bling/vim-airline'
+Plug 'Lokaltog/powerline-fonts'
+Plug 'tpope/vim-git'
+Plug 'airblade/vim-gitgutter'
+Plug 'nachumk/systemverilog.vim'
+Plug 'vim-scripts/rcs.vim'
+call plug#end()
 
 " Ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_by_filename = 1 " Search by filename
+let g:ctrlp_by_filename = 1
 
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
-
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
 
 " Buffers
 set hidden
@@ -53,16 +34,11 @@ nmap <C-o> :BuffergatorOpen<CR>
 
 " Airline
 let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1     " Enable the list of buffers
-"let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 
 " Ctags
-" Look up recursively for a tag file
-set tags=./tags;/
-" Ctrl+\ open def in new tab
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-" Ctrl+] open def in a vertical split
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+set tags=./tags;/                                           " Look up recursively for a tag file
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Ctrl+\ open def in new tab
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>      " Ctrl+] open def in a vertical split
 
 " Misc options
 syntax on
@@ -71,7 +47,7 @@ set backspace=indent,eol,start
 set textwidth=79
 set laststatus=2 " Always show the status line
 set wildmenu     " Enchanced command-line completion
-set ruler        " Display position in rhs of status bar
+set ruler        " Display position
 set showmode
 set showmatch    " Show matching parentheses
 set pastetoggle=<F2>
