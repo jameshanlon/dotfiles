@@ -66,13 +66,20 @@
 
 ## Editing
 
-- `ci"` change text in `"..."`
-- `ci<` change text in `<...>`
+- `i`/`a` insert before/after cursor
+- `o`/`O` open new line below/above cursor
+- `ci"`   change text in `"..."`
+- `ci<`   change text in `<...>`
+- `ciw`   change whole word under cursor
+- `cw`    change word from cursor
+- `D`     delete until end of line
+- `A`     append to end of line
 
 ## g
 
 - `:g/pattern/d`         Delete all lines matching a pattern.
 - `:g!/pattern/d`        Delete all lines not matching a pattern.
+- `:g/^\s*$/d`           e.g. delete all blank lines.
 - `:g/pattern/t$`        Copy all lines matching a pattern to end of the file.
 - `:g/pattern/m$`        Move all lines matching a pattern to end of the file.
 - `:g/pattern/normal @q` Run a macro on matching lines.
