@@ -85,6 +85,15 @@
 - `:g/pattern/normal @q` Run a macro on matching lines.
 - `:g/^/m0`              Revese a file.
 
+## s
+
+- `:%s/pattern/replacement/g`
+- `:%s//replacement/g` Replace text last searched for.
+
+Note:
+- `%` means use the whole buffer.
+- `g` means substitute every match on line, not just the first.
+
 ## Macros
 
 - Record: `q<letter> ... <commands> ... q`
