@@ -63,6 +63,7 @@
 - `E`  beginning of next word, skip ws
 - `(`/`)`  next/previous sentence
 - `{`/`}`  next/previous paragraph
+- `gt` goto file (curson on valid path)
 
 ## Editing
 
@@ -93,6 +94,8 @@
 Note:
 - `%` means use the whole buffer.
 - `g` means substitute every match on line, not just the first.
+
+- Replace visual selection: `s` replacement <Esc>
 
 ## Macros
 
