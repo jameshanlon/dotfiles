@@ -41,8 +41,15 @@ mv git-prompt.sh ~/.git-prompt.sh
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 mv git-completion.bash ~/.git-completion.bash
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+# Vim-Plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim -c ":PlugInstall"
 
-cd ~/.vim/bundle/powerline-fonts
+# Install Powerline fonts
+cd ~/.vim/plugged/powerline-fonts
 ./install.sh
+
+# Install ssh-ident (https://github.com/ccontavalli/ssh-ident):
+mkdir -p ~/bin; wget -O ~/bin/ssh goo.gl/MoJuKB; chmod 0755 ~/bin/ssh
+echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
