@@ -1,0 +1,20 @@
+# Fail2Ban configuration file.
+
+[DEFAULT]
+
+# "bantime" is the number of seconds that a host is banned.
+bantime  = 3600
+
+# Destination email address used solely for the interpolations in
+# jail.{conf,local} configuration files.
+destemail = mail@jameswhanlon.com
+
+sender = testing@localhost
+
+# Name of the sender for mta actions
+sendername = Fail2Ban
+
+# Choose default action.  To change, just override value of 'action' with the
+# interpolation to the chosen action shortcut (e.g.  action_mw, action_mwl, etc) in jail.local
+# globally (section [DEFAULT]) or per specific section
+action = %(action_mwl)s

@@ -2,35 +2,46 @@
 
 ## Security
 
-- Change SSH port (`Port`) in `/etc/ssh/sshd_config`
-
+- Change SSH port (`Port`) in `/etc/ssh/sshd_config`, then
   ```
   $ sudo service ssh restart
   ```
 
-- Restrict SSH ip addresses in `/etc/hosts.allow`
+- Whitelist SSH ip addresses in `/etc/hosts.allow`.
 
 - sSMTP as MTA for notifications: https://wiki.debian.org/sSMTP.
-
   ```
   $ sudo apt-get install mailutils ssmtp
   $ cat /etc/ssmtp/ssmtp.conf # Config file
   $ sudo rm -rf /usr/sbin/ sendmail # Use instead of sendmail for Fail2Ban
   $ sudo ln -s /usr/sbin/ssmtp /usr/sbin/sendmail
   ```
+  Test it:
+  ```
+  $ echo "Blah" | sendmail -s "This is a test sSMTP email" mail@domain.com
+  ```
 
-- Fail2Ban for blocking repeated failed access attempts.
-
+- Fail2Ban for blocking repeated failed access attempts. As root:
   ```
   $ sudo apt-get install fail2ban
-  $ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-  $ sudo cat /etc/fail2ban/jail.local # Customise configuration
-  $ sudo fail2ban {start, status, reload}
-  $ sudo cat /var/log/fail2ban.log
-  $ sudo iptables -L # Check the IP tables for Fail2Ban rules
+  $ sudo cp fail2ban/jail.local /etc/fail2ban/
+  $ sudo cp fail2ban/sendmail-common.local /etc/fail2ban/action.d
+  $ fail2ban reload       # Reload configuration
+  $ fail2ban {-d, -vvd}   # Display loaded configuration
+  $ fail2ban {start, stop}
+  ```
+  Various diagnostics:
+  ```
+  $ fail2ban status            # Display jail status
+  $ cat /var/log/fail2ban.log  # The logfile
+  $ iptables -L                # Check the IP tables for Fail2Ban rules
+  $ service fail2ban status    # Check the service status
   ```
 
-  See (http://www.doc.ic.ac.uk/~pg1712/blog/fail2ban-in-ubuntu/
+  See also
+    * http://www.doc.ic.ac.uk/~pg1712/blog/fail2ban-in-ubuntu/
+    * https://github.com/fail2ban/fail2ban/wiki/Proper-fail2ban-configuration
+    * https://www.linode.com/docs/security/using-fail2ban-for-security/ 
 
 - Check active network connections.
   ```
