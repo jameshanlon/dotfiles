@@ -123,9 +123,8 @@ autocmd FileType make set noexpandtab
 
 " Ctrlp
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_by_filename = 1
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_mruf_relative = 1
 
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
