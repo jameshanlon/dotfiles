@@ -5,6 +5,7 @@ DIR=~/dotfiles
 DOTFILES="\
   vimrc \
   gvimrc \
+  tmux.conf \
   gitconfig \
   ctags"
 
