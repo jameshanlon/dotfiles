@@ -6,7 +6,6 @@ Plug 'bling/vim-airline'
 Plug 'Lokaltog/powerline-fonts'
 Plug 'tpope/vim-git'
 Plug 'airblade/vim-gitgutter'
-Plug 'nachumk/systemverilog.vim'
 Plug 'vim-scripts/rcs.vim'
 call plug#end()
 
@@ -97,8 +96,10 @@ endif
 vnoremap < <gv
 vnoremap > >gv
 
+" Use sensible search highlight colours.
+hi Search cterm=NONE ctermfg=grey ctermbg=blue
+
 "" Highlight trailing whitespace
-"hi Search cterm=NONE ctermfg=grey ctermbg=blue
 "hi SpellBad ctermfg=None ctermbg=DarkRed
 "highlight LongLine ctermbg=red guibg=red
 "highlight WhitespaceEOL ctermbg=red guibg=red
@@ -123,8 +124,8 @@ autocmd FileType make set noexpandtab
 
 " Ctrlp
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_mruf_relative = 1
+"let g:ctrlp_cmd = 'CtrlPMixed'
+"let g:ctrlp_mruf_relative = 1
 
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
