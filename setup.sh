@@ -36,9 +36,11 @@ done
 cp ~/.bashrc ~/.bashrc-original
 cp bashrc ~/.bashrc
 
+# Git prompt
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 mv git-prompt.sh ~/.git-prompt.sh
 
+# Git completion
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 mv git-completion.bash ~/.git-completion.bash
 
@@ -47,10 +49,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c ":PlugInstall"
 
-# Install Powerline fonts
-cd ~/.vim/plugged/powerline-fonts
-./install.sh
-
 # Install ssh-ident (https://github.com/ccontavalli/ssh-ident):
 mkdir -p ~/bin; wget -O ~/bin/ssh goo.gl/MoJuKB; chmod 0755 ~/bin/ssh
 echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
+
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install

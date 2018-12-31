@@ -1,12 +1,15 @@
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'bling/vim-airline'
-Plug 'Lokaltog/powerline-fonts'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/rcs.vim'
+Plug 'vhda/verilog_systemverilog.vim'
+Plug 'terryma/vim-multiple-cursors'
+"Plug 'w0rp/ale'
 call plug#end()
 
 if has('autocmd')
@@ -32,6 +35,8 @@ set modeline
 set nojoinspaces  " No double spaces after punctuation
 set nostartofline " Do not jump to first character with page commands.
 set pastetoggle=<F2>
+set backupdir-=.
+set backupdir^=~/tmp " Redirect backups
 
 " Tabs
 set smarttab
@@ -46,8 +51,8 @@ set noautoindent
 "set smartindent
 
 " Search
-set hlsearch     " Highlight search phrases
-set incsearch    " Highlight as you type
+set hlsearch  " Highlight search phrases
+set incsearch " Highlight as you type
 set noswapfile
 " Always search forward
 nnoremap <expr> n 'Nn'[v:searchforward]
@@ -62,7 +67,7 @@ set splitbelow
 set splitright
 
 " Colours
-set t_Co=256     " Enable 256-colour mode
+set t_Co=256 " Enable 256-colour mode
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
@@ -99,14 +104,6 @@ vnoremap > >gv
 " Use sensible search highlight colours.
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
 
-"" Highlight trailing whitespace
-"hi SpellBad ctermfg=None ctermbg=DarkRed
-"highlight LongLine ctermbg=red guibg=red
-"highlight WhitespaceEOL ctermbg=red guibg=red
-"au BufRead,BufNewFile * syntax match LongLine /\%>80v.\+/
-"au InsertEnter * syntax match WhitespaceEOL /\s\+\%#\@<!$/
-"au InsertLeave * syntax match WhitespaceEOL /\s\+$/
-
 " Return to last edit position when opening files
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -122,10 +119,9 @@ command! Untab :%s/\t/  /g
 " In Makefiles, don't expand tabs to spaces
 autocmd FileType make set noexpandtab
 
-" Ctrlp
-let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlPMixed'
-"let g:ctrlp_mruf_relative = 1
+" fzf
+nmap <C-p> :Files<CR>
+nmap <C-o> :Buffers<CR>
 
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
@@ -138,13 +134,6 @@ nmap <C-b>d :bp <BAR> bd #<CR>  " Close current buffer and move to previous one
 nmap <C-s>  :bnext<CR>          " Next buffer
 nmap <C-a>  :bprevious<CR>      " Previous buffer
 nmap <C-d>  <C-6><CR>           " Go to last used buffer
-
-" Buffergator
-let g:buffergator_viewport_split_policy='n' " Open in current viewport
-nmap <C-o> :BuffergatorOpen<CR>
-
-" Airline
-let g:airline_powerline_fonts = 1
 
 " Ctags
 set tags=./tags;/                                           " Look up recursively for a tag file
