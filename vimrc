@@ -9,7 +9,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/rcs.vim'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'terryma/vim-multiple-cursors'
-"Plug 'w0rp/ale'
 call plug#end()
 
 if has('autocmd')
@@ -72,6 +71,7 @@ set t_Co=256 " Enable 256-colour mode
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
+colorscheme delek
 
 " Path/file expansion in colon-mode
 set wildmode=list:longest
@@ -110,6 +110,9 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
+" Change directory to that of current file.
+command! RebaseCwd :cd %:p:h<CR>:pwd<CR>
+
 " Delete trailing whitespace and tabs at the end of each line
 command! DeleteTrailingWs :%s/\s\+$//
 
@@ -128,12 +131,12 @@ nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
 
 " Buffers
-set hidden
-nmap <C-b>  :enew<CR>           " New buffer
-nmap <C-b>d :bp <BAR> bd #<CR>  " Close current buffer and move to previous one
-nmap <C-s>  :bnext<CR>          " Next buffer
-nmap <C-a>  :bprevious<CR>      " Previous buffer
-nmap <C-d>  <C-6><CR>           " Go to last used buffer
+"set hidden
+"nmap <C-b>  :enew<CR>           " New buffer
+"nmap <C-b>d :bp <BAR> bd #<CR>  " Close current buffer and move to previous one
+"nmap <C-s>  :bnext<CR>          " Next buffer
+"nmap <C-a>  :bprevious<CR>      " Previous buffer
+"nmap <C-d>  <C-6><CR>           " Go to last used buffer
 
 " Ctags
 set tags=./tags;/                                           " Look up recursively for a tag file
