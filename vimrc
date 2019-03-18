@@ -43,6 +43,9 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+" Opening tabs
+nnoremap <C-t> :tabnew<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
 
 " Indentation
 set noautoindent
@@ -111,7 +114,7 @@ autocmd BufReadPost *
      \ endif
 
 " Change directory to that of current file.
-command! RebaseCwd :cd %:p:h<CR>:pwd<CR>
+command! RebaseCwd :cd %:p:h
 
 " Delete trailing whitespace and tabs at the end of each line
 command! DeleteTrailingWs :%s/\s\+$//
