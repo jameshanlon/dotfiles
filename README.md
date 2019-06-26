@@ -21,3 +21,8 @@ Mount a VirtualBox shared folder:
 $ mkdir ~/VBoxShare
 $ sudo mount -t vboxsf -o rw,uid=1000,gid=1000 VBoxShare ~/VBoxShare
 ```
+
+Install fd (https://github.com/sharkdp/fd), eg:
+```
+sudo apt-get install fd-find
+```
