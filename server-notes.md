@@ -2,7 +2,16 @@
 
 ## Security
 
-- Change SSH port (`Port`) in `/etc/ssh/sshd_config`, then
+- Change SSH port (`Port`) in `/etc/ssh/sshd_config`, then restart SSH:
+  ```
+  $ sudo service ssh restart
+  ```
+
+- Disable password authentication, edit `/etc/ssh/sshd_config` and set:
+  ```
+  PasswordAuthentication yes -> no
+  ```
+  Then restart SSH:
   ```
   $ sudo service ssh restart
   ```
@@ -41,7 +50,7 @@
   See also
     * http://www.doc.ic.ac.uk/~pg1712/blog/fail2ban-in-ubuntu/
     * https://github.com/fail2ban/fail2ban/wiki/Proper-fail2ban-configuration
-    * https://www.linode.com/docs/security/using-fail2ban-for-security/ 
+    * https://www.linode.com/docs/security/using-fail2ban-for-security/
 
 - Check active network connections.
   ```
