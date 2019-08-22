@@ -6,7 +6,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/rcs.vim'
+"Plug 'vim-scripts/rcs.vim'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'terryma/vim-multiple-cursors'
 call plug#end()
@@ -46,6 +46,9 @@ set shiftwidth=2
 " Opening tabs
 nnoremap <C-t> :tabnew<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
+" Switching
+nnoremap H gT
+nnoremap L gt
 
 " Indentation
 set noautoindent
@@ -121,6 +124,10 @@ command! DeleteTrailingWs :%s/\s\+$//
 
 " Convert all tab characters to two spaces
 command! Untab :%s/\t/  /g
+
+" Some RCS helpers.
+command! Checkout :!xpInfraRcs co %
+command! Checkin  :!xpInfraRcs ci -m . %
 
 " In Makefiles, don't expand tabs to spaces
 autocmd FileType make set noexpandtab
