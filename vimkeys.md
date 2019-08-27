@@ -2,34 +2,6 @@
 
 - `:e **/<name>` Open file with <name> from any directory.
 
-## CtrlP
-
-`Ctrl+p` search, then:
-- `Ctrl+f` Switch mode
-- `Ctrl+r` Regex mode
-- `Ctrl+v` Open in vertical split
-
-## Buffers
-
-- `Ctrl+b`    New buffer
-- `Ctrl+b`d   Delete buffer
-- `Ctrl+a`    Previous buffer
-- `Ctrl+s`    Next buffer
-- `Ctrl+d`    Last recently used buffer
-
-## Buffergator
-
-`Ctrl+o`, then:
-- `Ctrl+V` Open buffer in vertical split
-- `Ctrl+S` Open buffer in horizontal split
-- `Ctrl+T` Open buffer in new tab
-- `gb`     Switch between most-recently used buffers
-- `cs`     Cycle between sorts
-- `cs`     Cycle between displays
-- `r`      Refresh
-- `d`      Delete a buffer
-- `q`      Quit
-
 ## NERDTree
 
 - `Ctrl+n`    Toggle
@@ -76,6 +48,14 @@
 - `D`     delete until end of line
 - `A`     append to end of line
 
+## Splits
+
+- ``Ctrl+w _`` maximise height of current split
+- ``Ctrl+w |`` maximise width of current split
+- ``Ctrl+w =`` equalise size of splits
+- ``Ctrl+w R`` swap top/bottom or left/right split
+- ``Ctrl+w T`` move current window into a new tab
+
 ## g
 
 - `:g/pattern/d`         Delete all lines matching a pattern.
@@ -110,3 +90,31 @@ qd
 q
 10@q
 ```
+
+## CtrlP
+
+`Ctrl+p` search, then:
+- `Ctrl+f` Switch mode
+- `Ctrl+r` Regex mode
+- `Ctrl+v` Open in vertical split
+
+## Buffers
+
+- `Ctrl+b`    New buffer
+- `Ctrl+b`d   Delete buffer
+- `Ctrl+a`    Previous buffer
+- `Ctrl+s`    Next buffer
+- `Ctrl+d`    Last recently used buffer
+
+## Buffergator
+
+`Ctrl+o`, then:
+- `Ctrl+V` Open buffer in vertical split
+- `Ctrl+S` Open buffer in horizontal split
+- `Ctrl+T` Open buffer in new tab
+- `gb`     Switch between most-recently used buffers
+- `cs`     Cycle between sorts
+- `cs`     Cycle between displays
+- `r`      Refresh
+- `d`      Delete a buffer
+- `q`      Quit
