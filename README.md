@@ -16,6 +16,12 @@ $ bash setup.sh
 
 ## Other stuff
 
+Setup git:
+```
+git config --global user.name "James Hanlon"
+git config --global user.email "mail@jameswhanlon.com"
+```
+
 Mount a VirtualBox shared folder:
 ```
 $ mkdir ~/VBoxShare

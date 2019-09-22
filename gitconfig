@@ -1,6 +1,6 @@
 [user]
-  name = James Hanlon
-  email =
+	name = James Hanlon
+	email = mail@jameswhanlon.com
 [core]
   editor = vim
   filemode = true
