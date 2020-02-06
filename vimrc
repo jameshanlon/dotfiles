@@ -50,6 +50,9 @@ inoremap <C-t> <Esc>:tabnew<CR>
 nnoremap H gT
 nnoremap L gt
 
+" Macros
+:nnoremap <Space> @q
+
 " Indentation
 set noautoindent
 "set autoindent
@@ -166,10 +169,10 @@ augroup filetype
   au! BufRead,BufNewFile *.td set filetype=tablegen
 augroup END
 
-augroup filetype
-  au! BufRead,BufNewFile *.rst set filetype=rest
-augroup END
+"augroup filetype
+"  au! BufRead,BufNewFile *.rst set filetype=rest
+"augroup END
 
-augroup filetype
-  au! BufRead,BufNewFile *.sire set filetype=sire
-augroup END
+"augroup filetype
+"  au! BufRead,BufNewFile *.sire set filetype=sire
+"augroup END
