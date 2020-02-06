@@ -7,7 +7,9 @@ DOTFILES="\
   gvimrc \
   tmux.conf \
   gitconfig \
-  ctags"
+  ctags \
+  config/pet/config.toml \
+  config/pet/snippet.toml"
 
 if ! [ $PWD = $HOME/dotfiles ]; then
   echo "Expecting doftiles in $HOME"

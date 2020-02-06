@@ -1,0 +1,433 @@
+[[snippets]]
+  description = "EXU tb 32b"
+  command = "xgsim -t ip/xm_exu/xm_exu_tb_32b -p questa,sc,debug +random_repeats=<repeats=0> +error=<errors=1> +<set=all>"
+  output = ""
+
+[[snippets]]
+  description = "EXU tb 64b"
+  command = "xgsim -t ip/xm_exu/xm_exu_tb_64b -p questa,sc,debug +random_repeats=<repeats=0> +error=<errors=1> +<set=all>"
+  output = ""
+
+[[snippets]]
+  description = "Build supertile"
+  command = "xgbuild -t xm_supertile -p vcs,fast"
+  output = ""
+
+[[snippets]]
+  description = "Run program on tile 0"
+  command = "xgsim -t xm_supertile -p vcs,fast +tilecpu+u_tilecpu_0,<program=test.S> +verbosity+debug +error+<errors=1>"
+  output = ""
+
+[[snippets]]
+  description = "Run DC"
+  command = "xgbuild --top <module=xm_tilecpu> --platform dc --logfile=<logfile=DC_LOG>"
+  output = ""
+
+[[snippets]]
+  description = "Export to phys"
+  command = "xgbuild -t <module=xm_colossus> -p export,phys"
+  output = ""
+
+[[snippets]]
+  description = "Run all Emacs macros"
+  command = "xgemacs-auto --path ip --match '/rtl/[^/]+$' --match '!/dft/'"
+  output = ""
+
+[[snippets]]
+  description = "Run Emacs autos on file"
+  command = "xgemacs-auto --path ip/xm_tilecpu/rtl/<module=xm_csr>.sv"
+  output = ""
+
+[[snippets]]
+  description = "Run CSR and tile CPU Emacs autos"
+  command = "xgemacs-auto --path ip/xm_tilecpu/rtl/xm_csr.sv --path ip/xm_tilecpu/rtl/xm_tilecpu.sv"
+  output = ""
+
+[[snippets]]
+  description = "Remove all arcpatch branches"
+  command = "git branch -D `git branch | grep arcpatch-*`"
+  output = ""
+
+[[snippets]]
+  description = "Fix whitespace in local commits"
+  command = "git rebase --whitespace=fix"
+  output = ""
+
+[[snippets]]
+  description = "Dry run to remove untracked files and directories"
+  command = "git clean -n"
+  output = ""
+
+[[snippets]]
+  description = "Remove untracked files and directories in git repo"
+  command = "git clean -f"
+  output = ""
+
+[[snippets]]
+  description = "Export RTL for Emacs autos"
+  command = "xgbuild -t xm_colossus -p export,phys"
+  output = ""
+
+[[snippets]]
+  description = "Fast DB"
+  command = "MDB=off"
+  output = ""
+
+[[snippets]]
+  description = "Show my git commits"
+  command = "git log --author=\"Jamie Hanlon\" --pretty=oneline"
+  output = ""
+
+[[snippets]]
+  description = "Build supertile with Verilator"
+  command = "xgrun xgbuild -t xm_supertile -p verilator,clang,Os,fast --logfile=<logfile=VERILATOR_LOG>"
+  output = ""
+
+[[snippets]]
+  description = "Run EXU test bench set"
+  command = "./ip/xm_exu/verif/bin/run_test_benches.sh"
+  output = ""
+
+[[snippets]]
+  description = "Regenerate DFT (for changes to supertile)"
+  command = "xgtestbuild --only-supertile --quick"
+  output = ""
+
+[[snippets]]
+  description = "Run EXU emacs macros."
+  command = "xgemacs-auto --path ip/xm_tilecpu/rtl/xm_csr.sv --path ip/xm_tilecpu/rtl/xm_tilecpu.sv"
+  output = ""
+
+[[snippets]]
+  description = "Run PRNG test bench"
+  command = "xgsim -t ip/xm_prng -p questa,sc,debug +error+1"
+  output = ""
+
+[[snippets]]
+  description = "List queue slots in use"
+  command = "qstat | grep bulk | awk '{print $4;}' | sort | uniq -c | sort -bgr"
+  output = ""
+
+[[snippets]]
+  description = "Supertile sim with VCS"
+  command = "xgrun xgsim -t xm_supertile -p vcs,debug,fast +testname+work"
+  output = ""
+
+[[snippets]]
+  description = "Run SANS supetile test"
+  command = "xgsim -t xm_supertile -p vcs,fast +tilecpu+u_tilecpu_0,/pool2/work/jamieh/tests/sans.S,timeout:5000 +tilecpu+u_tilecpu_1,$PWD/../../tests/sans.S,timeout:5000 +verbosity+debug +tilecpu+u_tilecpu_2,$PWD/../../tests/sans.S,timeout:5000 +verbosity+debug +tilecpu+u_tilecpu_3,$PWD/../../tests/sans.S,timeout:5000 +verbosity+debug"
+  output = ""
+
+[[snippets]]
+  description = "Generate suspicious strings"
+  command = "git ls-files -- '*' | xargs -I{} git blame -f {} | grep \"\\(FIXME\\)\\|\\(TODO\\)\\|\\(TO DO\\)\\|\\(CHECKME\\)\\\" -i > suspicious_strings.txt"
+  output = ""
+
+[[snippets]]
+  description = "Pristine rerun emacs macros"
+  command = "xgclean && xgbuild -t xm_colossus/bist -p export,phys && xgbuild -t xm_supertile -p vcs,fast && xgemacs-auto --path ip --match '/rtl/[^/]+$' --match '!/dft/'"
+  output = ""
+
+[[snippets]]
+  description = "Show Tremor generators"
+  command = "tremor --help-generators"
+  output = ""
+
+[[snippets]]
+  description = "Show RTL diff between two git hashes"
+  command = "find ip/ -name *.sv | grep \"rtl/\" | xargs -d '\\n' -I {} git diff <begin=xxx>..<end=HEAD> {}"
+  output = ""
+
+[[snippets]]
+  description = "Display commits affecting RTL between two git hashes"
+  command = "find ip/ -name *.sv | grep \"rtl/\" | xargs -d '\\n' -I {} git log --oneline <begin=xxx>..<end=HEAD> {} | sort | uniq"
+  output = ""
+
+[[snippets]]
+  description = "Request xterm on a high memory machine"
+  command = "qxt -q bulk -l himem=1,mem=128G"
+  output = ""
+
+[[snippets]]
+  description = "Run ipu_dummy testbench with logging"
+  command = "xgsim -t xm_colossus/trunk_tb/ipu_dummy_slices1-7_supertile0 -p vcs,fast +seed<seed=1> +transactions+trunk_with_tile/basic +log+$PWD/sim.log,debug +tilecpu+,log:debug"
+  output = ""
+
+[[snippets]]
+  description = "Set git upstream branch to master"
+  command = "git branch --set-upstream-to=master"
+  output = ""
+
+[[snippets]]
+  description = "Recompile libverif locally (xgrun?)"
+  command = "xgbuild -t verif/libverif/compile -p clang --config verif.dependency_overrides=verif/xm_unknown/compile -j8"
+  output = ""
+
+[[snippets]]
+  description = "Load local libverif (silicon 1)"
+  command = "module rm colossus/libverif && module load colossus/libverif/silicon1-clang"
+  output = ""
+
+[[snippets]]
+  description = "Load local libverif (silicon 2)"
+  command = "module rm colossus/libverif && module load colossus/libverif/silicon2-clang"
+  output = ""
+
+[[snippets]]
+  description = "Load local libverif (silicon 3)"
+  command = "module rm colossus/libverif && module load colossus/libverif/silicon3-clang"
+  output = ""
+
+[[snippets]]
+  description = "Generate SYNC/SANS tests"
+  command = "tremor -g supervisor.system.sync -o test.S"
+  output = ""
+
+[[snippets]]
+  description = "xgrtf"
+  command = "xgrtf -t xm_supertile -p vcs,fast --qwidth <width=0> -k"
+  output = ""
+
+[[snippets]]
+  description = "Run set of sync tests"
+  command = "xgrtf -t xm_supertile -p vcs,fast -g <number=1000>,supervisor.system.sync --qwidth <width=0> --compile -k"
+  output = ""
+
+[[snippets]]
+  description = "Run a set of tests with a combination of generators"
+  command = "xgrtf -t xm_supertile -p vcs,fast -g 50,supervisor.system.sync -g 50,supervisor.system.delay -g 50,supervisor.exchange.* --qwidth <width=0> +tilecpu+,csrstatechecker --compile -k"
+  output = ""
+
+[[snippets]]
+  description = "Run complete supertile test set"
+  command = "xgrtf -t xm_supertile -p vcs,fast --qwidth <width=0> -k"
+  output = ""
+
+[[snippets]]
+  description = "Display git branch graph"
+  command = "git log --decorate --graph --oneline --all"
+  output = ""
+
+[[snippets]]
+  description = "Display git log changes to files"
+  command = "git whatchanged origin/master -n <number=1>"
+  output = ""
+
+[[snippets]]
+  description = "Display bitfields of CSR"
+  command = "~jakel/local/bin/regval <value=0x00000000> <regname=CTXT_STS>"
+  output = ""
+
+[[snippets]]
+  description = "List git commits in a range to a set of files with common path"
+  command = "find ip/ -name *.sv | grep <path=\"ip/xm_exu/rtl/\"> | xargs -d '\\n' -I {} git log <start=xxx>..HEAD --pretty=oneline --follow {} | sort | uniq"
+  output = ""
+
+[[snippets]]
+  description = "List generators"
+  command = "tremor --help-generators"
+  output = ""
+
+[[snippets]]
+  description = "Activate colossus_tools debug"
+  command = "pushd /pool2/work/jamieh/colossus_tools/Debug && source activate.sh && popd && export COLOSSUS_TOOLS_ROOT=${COLOSSUS_TOOLS_ROOT}-invalid"
+  output = ""
+
+[[snippets]]
+  description = "Run a single supertile test"
+  command = "xgsim -t xm_supertile -p vcs,fast +testname"
+  output = ""
+
+[[snippets]]
+  description = "List queue slots in use by user and allocation"
+  command = "qstat -ext | grep bulk | awk '{printf(\"%10s %13s\\n\", $5, $6)}' | sort | uniq -c | sort -n | tee /dev/tty | awk '{s+=$1}END{print s}'"
+  output = ""
+
+[[snippets]]
+  description = "Interactive queue terminal"
+  command = "qlogin -q interactive"
+  output = ""
+
+[[snippets]]
+  description = "Export tilecpu RTL"
+  command = "xgbuild -t xm_tilecpu -p export,phys"
+  output = ""
+
+[[snippets]]
+  description = "Generate coverage on exchange tests in supertile set"
+  command = "xgrtf -t xm_supertile --include \"//testset/test[position()=1]/name[contains(text(), 'supervisor-any-any')]\" -p vcs,cover,fast -k --compile"
+  output = ""
+
+[[snippets]]
+  description = "Run short coverage test set"
+  command = "xgrtf -t xm_supertile --include \"//testset[1]/test[position()<5]\" -p vcs,cover,fast -k --compile"
+  output = ""
+
+[[snippets]]
+  description = "Show a patch from the git stash stack"
+  command = "git stash show -p stash@{<number=1>}"
+  output = ""
+
+[[snippets]]
+  description = "Test supertile test set xpath expression"
+  command = "LD_LIBRARY_PATH=/a/ap/libxml2/2.9.2/lib/ xmllint --xpath \"//testset[test][1]/test[position()<10]\" /xmos/ip/colossus/verif/AVS/0.0.200/release/20180921.xml"
+  output = ""
+
+[[snippets]]
+  description = "MySQL client"
+  command = "mysql --host xf008 --port 3307 --user mdb --password=mdb mdb"
+  output = ""
+
+[[snippets]]
+  description = "View license statuses"
+  command = "lmstat -a | less"
+  output = ""
+
+[[snippets]]
+  description = "Verif website development server"
+  command = "module load uwsgi; verif/www/report -m -u -p localhost:8080"
+  output = ""
+
+[[snippets]]
+  description = "List Questa licenses"
+  command = "/pool2/ap/mentor/mgls/mgls_v9-18_8-6-0.aol/bin/lmstat -c 27010@xf002 -f msimhdlsim"
+  output = ""
+
+[[snippets]]
+  description = "Search cell datasheets"
+  command = "/a/phys/common/tools/xpInfra/dev/bin/xpInfraListCellsTiming_ts07nxp"
+  output = ""
+
+[[snippets]]
+  description = "Tim2 aggregating (.ts files)"
+  command = "/a/phys/mk2/xm_tilecpu/common/dev/src/xpProcessTim2"
+  output = ""
+
+[[snippets]]
+  description = "Phys plan progress"
+  command = "(cd $xpRoot/common/phys/doc/dev/planning; python planStatus.py -p ./mk2.0_planned_effort.txt --startDate 20181003 -w /a/work/weekly)"
+  output = ""
+
+[[snippets]]
+  description = "Dump phys weeklies"
+  command = "(cd /a/work/weekly/jamieh; for x in ./*; do printf \"WEEK: $(basename $x)\\n\\n\"; cat $x; echo; done)"
+  output = ""
+
+[[snippets]]
+  description = "Open phys build trials doc"
+  command = "vim $xpRoot/mk2/xm_tilecpu/common/dev/src/7nm_tilecpu_bb_trials.txt"
+  output = ""
+
+[[snippets]]
+  description = "Phys milestones"
+  command = "vim /a/phys/common/phys/doc/dev/planning/MILESTONES.txt"
+  output = ""
+
+[[snippets]]
+  description = "Create a BB release"
+  command = "db release mk2/xm_tilecpu/bb/<build_area> \"Release message...\" -force"
+  output = ""
+
+[[snippets]]
+  description = "Get test failures in XML from log ID"
+  command = "xgrtf-testlist tilecpu -o tests.xml --failures --logids <logids=381722263>"
+  output = ""
+
+[[snippets]]
+  description = "Run xgrtf on XML test set"
+  command = "xgrtf -x <testset=tests.xml> -k -p vcs,fast -t xm_supertile --compile"
+  output = ""
+
+[[snippets]]
+  description = "Open tilecpu common procs tcl file"
+  command = "vim $xpRoot/mk2/xm_tilecpu/common/dev/src/common_procs.tcl"
+  output = ""
+
+[[snippets]]
+  description = "Top 10 commands"
+  command = "history | awk '{print $4}' | sort | uniq -c | sort -rn | head -10"
+  output = ""
+
+[[snippets]]
+  description = "Phys planning guide"
+  command = "vim /a/phys/common/phys/doc/dev/planning/README"
+  output = ""
+
+[[snippets]]
+  description = "Get an interaactive shell on a himem machine for a long compile"
+  command = "qsub -q bulk -l himem=1,num_proc=20 -V -N build_colossus_tools <<< xterm"
+  output = ""
+
+[[snippets]]
+  description = "Column mux notebook"
+  command = "vim /a/phys/mk2/xm_colossus/common/dev/src/xm_exchange_column_mux_notebook.txt"
+  output = ""
+
+[[snippets]]
+  description = "DC licences"
+  command = "lmstat -f Design-Compiler"
+  output = ""
+
+[[snippets]]
+  description = "icc2 licences"
+  command = "lmstat -f ICCompilerII"
+  output = ""
+
+[[snippets]]
+  description = "Supertile assembly notebook"
+  command = "vim /a/phys/mk2/xm_supertile/common/dev/src/notebook.txt"
+  output = ""
+
+[[snippets]]
+  description = "Bundle drivers notebook"
+  command = "vim /a/phys/mk2/bundle_drivers/common/dev/src/notebook.txt"
+  output = ""
+
+[[snippets]]
+  description = "List ss datasheets"
+  command = "ls -lL /a/phys/tsmc7/std_*/lib/dev/freeze/*.ss*.datasheet"
+  output = ""
+
+[[snippets]]
+  description = "List ff datasheets"
+  command = "ls -lL /a/phys/tsmc7/std_*/lib/dev/freeze/*.ff*.datasheet"
+  output = ""
+
+[[snippets]]
+  description = "Launch all bundle driver icc2Finish sessions"
+  command = "for x in ne nw se sw; do pushd build/icc2Finish && rv xm_exchange_${x}_bundle_driver & done"
+  output = ""
+
+[[snippets]]
+  description = "Update all stage reports (bcs)"
+  command = "bcs | tr -s ' ' | cut -d ' ' -f 3 | xargs -L1 xpInfraUpdateStageReport; xpInfraRun auditbuild"
+  output = ""
+
+[[snippets]]
+  description = "Update all stage reports (acs)"
+  command = "acs | tr -s ' ' | cut -d ' ' -f 3 | xargs -L1 xpInfraUpdateStageReport; xpInfraRun auditcheck"
+  output = ""
+
+[[snippets]]
+  description = "Start SSH agent"
+  command = "eval \"$(ssh-agent -s)\" && ssh-add ~/.ssh/id_rsa"
+  output = ""
+[[snippets]]
+  description = "Check home quota"
+  command = "grep $USER /home/.gcit/quota/current.txt"
+  output = ""
+
+[[snippets]]
+  description = "Check work directory quota"
+  command = "grep $USER /a/work/.gcit/quota/current.txt"
+  output = ""
+
+[[snippets]]
+  description = "List directory sizes (file cleanup)"
+  command = "du -sk * | sort -n"
+  output = ""
+
+[[snippets]]
+  description = "Check symbols in a shared object"
+  command = "readelf --dynamic --symbols --wide /usr/lib64/libreadline.so.7.0 | fgrep tputs"
+  output = ""
