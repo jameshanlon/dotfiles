@@ -412,6 +412,7 @@
   description = "Start SSH agent"
   command = "eval \"$(ssh-agent -s)\" && ssh-add ~/.ssh/id_rsa"
   output = ""
+
 [[snippets]]
   description = "Check home quota"
   command = "grep $USER /home/.gcit/quota/current.txt"
@@ -430,4 +431,14 @@
 [[snippets]]
   description = "Check symbols in a shared object"
   command = "readelf --dynamic --symbols --wide /usr/lib64/libreadline.so.7.0 | fgrep tputs"
+  output = ""
+
+[[snippets]]
+  description = "Kill jobs with command lines matching <pattern>"
+  command = "pkill -9 -f <pattern>"
+  output = ""
+
+[[snippets]]
+  description = "Run a <command> on the queue"
+  command = "qsub -q bulk -V -sync y -j y -cwd -b y -l num_proc=1 <command>"
   output = ""
