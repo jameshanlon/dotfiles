@@ -51,10 +51,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c ":PlugInstall"
 
-# Install ssh-ident (https://github.com/ccontavalli/ssh-ident):
-mkdir -p ~/bin; wget -O ~/bin/ssh goo.gl/MoJuKB; chmod 0755 ~/bin/ssh
-echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
-
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+## Install ssh-ident (https://github.com/ccontavalli/ssh-ident):
+#mkdir -p ~/bin; wget -O ~/bin/ssh goo.gl/MoJuKB; chmod 0755 ~/bin/ssh
+#echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
