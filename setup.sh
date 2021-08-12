@@ -3,13 +3,20 @@ set -e
 
 DIR=~/dotfiles
 DOTFILES="\
-  vimrc \
+  aspell.en.prepl \
+  aspell.en.pws \
+  bash_eternal_history \
+  config/pet/config.toml \
+  config/pet/snippet.toml \
+  ctags \
+  gitconfig \
   gvimrc \
   tmux.conf \
-  gitconfig \
-  ctags \
-  config/pet/config.toml \
-  config/pet/snippet.toml"
+  viminfo \
+  vimrc \
+  zsh_history \
+  zshrc \
+  "
 
 if ! [ $PWD = $HOME/dotfiles ]; then
   echo "Expecting doftiles in $HOME"
