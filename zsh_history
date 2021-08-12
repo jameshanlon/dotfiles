@@ -10117,3 +10117,41 @@ git push -u origin main
 : 1628759940:0;cp  ~/.zshrc zshrc
 : 1628759946:0;vim ~/.zsh_history
 : 1628759957:0;cp ~/.zsh_history zsh_history
+git clone https://github.com/jameshanlon/dotfiles.git
+cd dotfiles
+ls
+bash setup.sh
+vim setup.sh
+bash setup.sh
+fg
+vim setup.sh
+dirname  config/pet/config.toml
+fg
+bash setup.sh
+fg
+vim setup.sh
+bash setup.sh
+vim setup.sh
+fg
+bash setup.sh
+fg
+fg
+bash setup.sh
+fg
+bash setup.sh
+ls -alh
+ls -alh |
+ls -alh $HOME
+fg
+mkdir --help
+mkdir -h
+man mkdir
+fg
+fg
+ls
+fg
+bash setup.sh
+fg
+brew install wget
+bash setup.sh
+exit

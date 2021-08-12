@@ -15,12 +15,28 @@ $ cd dotfiles
 $ bash setup.sh
 ```
 
+## OSX
+
+Install Homebrew and packages:
+```
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ brew install wget
+$ brew install fd
+```
+
 ## Git
 
 Setup git:
 ```
 git config --global user.name "James Hanlon"
 git config --global user.email "mail@jameswhanlon.com"
+```
+
+## Oh-my-ZSH
+
+Setup oh-my-zsh (https://ohmyz.sh/#install):
+```
+$ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
 ## VirtualBox

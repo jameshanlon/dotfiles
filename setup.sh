@@ -28,7 +28,10 @@ echo "Changing to $DIR"
 cd $DIR
 
 for f in $DOTFILES; do
+  echo "==== dotfile: $f ===="
   p="$HOME/.$f"
+  # Make directories if required
+  mkdir -p "$HOME/.$(dirname "${f}")"
   # Make a copy of a dotfile, otherwise delete it
   if [ -f $p ] && ! [ -L $p ]; then
     echo "Backing up existing dotfile '~/.$f'"
@@ -38,12 +41,14 @@ for f in $DOTFILES; do
     rm -f $p
   fi
   # Make symlink
-  echo "Creating symlink to '$f' in ~/"
+  echo "Creating symlink to '.$f' in ~/"
   ln -s $DIR/$f $HOME/.$f
 done
 
-cp ~/.bashrc ~/.bashrc-original
-cp bashrc ~/.bashrc
+if test -f "~/.bashrc"; then
+  cp ~/.bashrc ~/.bashrc-original
+  cp bashrc ~/.bashrc
+fi
 
 # Git prompt
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
