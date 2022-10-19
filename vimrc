@@ -1,3 +1,4 @@
+" ### Plug ###
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -9,16 +10,34 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'justinmk/vim-sneak'
 call plug#end()
 
+" ### Syntax ###
 if has('autocmd')
   filetype plugin indent on
 endif
+
 if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
-" Misc options
+augroup filetype
+  au! BufRead,BufNewFile *Makefile* set filetype=make
+augroup END
+
+augroup filetype
+  au! BufRead,BufNewFile *.ll set filetype=llvm
+augroup END
+
+augroup filetype
+  au! BufRead,BufNewFile *.td set filetype=tablegen
+augroup END
+
+" In Makefiles, don't expand tabs to spaces
+autocmd FileType make set noexpandtab
+
+" ### Misc options ###
 set encoding=utf-8
 set backspace=indent,eol,start
 set textwidth=79
@@ -37,7 +56,7 @@ set pastetoggle=<F2>
 set backupdir-=.
 set backupdir^=~/tmp " Redirect backups
 
-" Tabs
+" ### Tabs ###
 set smarttab
 set expandtab
 set tabstop=2
@@ -46,7 +65,7 @@ set shiftwidth=2
 " Opening tabs
 nnoremap <C-t> :tabnew<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
-" Switching
+" Switching between tabs
 nnoremap H gT
 nnoremap L gt
 
@@ -70,11 +89,11 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-" Splits
+" ### Splits ###
 set splitbelow
 set splitright
 
-" Colours
+" ### Colours ###
 set t_Co=256 " Enable 256-colour mode
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
@@ -82,11 +101,11 @@ if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
 endif
 colorscheme delek
 
-" Path/file expansion in colon-mode
+" ### Path/file expansion in colon-mode ###
 set wildmode=list:longest
 set wildchar=<TAB>
 
-" Scrolling.
+" ### Scrolling ###
 if !&scrolloff
   set scrolloff=1
 endif
@@ -95,8 +114,7 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
-" Tell Vim which characters to show for expanded TABs, trailing whitespace,
-" and end-of-lines.
+" Tell Vim which characters to show for expanded TABs, trailing whitespace and end-of-lines.
 if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
@@ -106,11 +124,11 @@ if &history < 1000
   set history=1000
 endif
 
-" Reselect visual block after indent.
+" Reselect visual block after indent
 vnoremap < <gv
 vnoremap > >gv
 
-" Use sensible search highlight colours.
+" Use sensible search highlight colours
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
 
 " Return to last edit position when opening files
@@ -119,60 +137,31 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
+" ### Commands ###
 " Change directory to that of current file.
 command! RebaseCwd :cd %:p:h
-
 " Delete trailing whitespace and tabs at the end of each line
 command! DeleteTrailingWs :%s/\s\+$//
-
 " Convert all tab characters to two spaces
 command! Untab :%s/\t/  /g
 
-" Some RCS helpers.
-command! Checkout :!xpInfraRcs co %
-command! Checkin  :!xpInfraRcs ci -m . %
-
-" In Makefiles, don't expand tabs to spaces
-autocmd FileType make set noexpandtab
-
-" fzf
+" ### fzf ###
 nmap <C-p> :Files<CR>
 nmap <C-o> :Buffers<CR>
 
-" Nerdtree
+" ### Nerdtree ###
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
 
-" Buffers
-"set hidden
-"nmap <C-b>  :enew<CR>           " New buffer
-"nmap <C-b>d :bp <BAR> bd #<CR>  " Close current buffer and move to previous one
-"nmap <C-s>  :bnext<CR>          " Next buffer
-"nmap <C-a>  :bprevious<CR>      " Previous buffer
-"nmap <C-d>  <C-6><CR>           " Go to last used buffer
+" ### Terminal ###
+" In split window
+map <Leader>t :vert term ++close<cr>
+tmap <Leader>t <c-w>:term ++close<cr>
+" In new tab
+map <Leader>T :tab term ++close<cr>
+tmap <Leader>T <c-w>:tab term ++close<cr>
 
-" Ctags
+" ### Ctags ###
 set tags=./tags;/                                           " Look up recursively for a tag file
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Ctrl+\ open def in new tab
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>      " Ctrl+] open def in a vertical split
-
-" Syntax files
-augroup filetype
-  au! BufRead,BufNewFile *Makefile* set filetype=make
-augroup END
-
-augroup filetype
-  au! BufRead,BufNewFile *.ll set filetype=llvm
-augroup END
-
-augroup filetype
-  au! BufRead,BufNewFile *.td set filetype=tablegen
-augroup END
-
-"augroup filetype
-"  au! BufRead,BufNewFile *.rst set filetype=rest
-"augroup END
-
-"augroup filetype
-"  au! BufRead,BufNewFile *.sire set filetype=sire
-"augroup END
