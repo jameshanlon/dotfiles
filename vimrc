@@ -1,17 +1,18 @@
 " ### Plug ###
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'vhda/verilog_systemverilog.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'preservim/tagbar'
+Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-surround'
+Plug 'vhda/verilog_systemverilog.vim'
 call plug#end()
 
 " ### Syntax ###
@@ -166,3 +167,9 @@ tmap <Leader>T <c-w>:tab term ++close<cr>
 set tags=./tags;/                                           " Look up recursively for a tag file
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Ctrl+\ open def in new tab
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>      " Ctrl+] open def in a vertical split
+
+" ### Easy align ###
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
