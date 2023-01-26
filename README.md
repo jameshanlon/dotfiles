@@ -75,6 +75,22 @@ function pet-select() {
 bind -x '"\C-p": pet-select'
 ```
 
+## Tmux
+
+Handy program for system load:
+https://github.com/thewtex/tmux-mem-cpu-load
+
+OSX:
+```
+$ brew install tmux-mem-cpu-load
+```
+
+Build from source:
+```
+$ git clone https://github.com/thewtex/tmux-mem-cpu-load.git
+$ cd tmux-mem-cpu-load; mkdir build; cd build; cmake ..; make
+```
+
 ## Inconsolata
 
 Install Inconsolata font from [Google Fonts](https://fonts.google.com/specimen/Inconsolata):
