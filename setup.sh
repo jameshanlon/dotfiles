@@ -5,9 +5,6 @@ DIR=~/dotfiles
 DOTFILES="\
   aspell.en.prepl \
   aspell.en.pws \
-  config/pet/config.toml \
-  config/pet/snippet.toml \
-  ctags \
   gitconfig \
   gvimrc \
   tmux.conf \
