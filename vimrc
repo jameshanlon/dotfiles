@@ -11,6 +11,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'justinmk/vim-sneak'
+Plug 'preservim/tagbar'
 call plug#end()
 
 " ### Syntax ###
@@ -99,7 +100,7 @@ set t_Co=256 " Enable 256-colour mode
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
-colorscheme delek
+colorscheme evening 
 
 " ### Path/file expansion in colon-mode ###
 set wildmode=list:longest
