@@ -5,16 +5,13 @@ DIR=~/dotfiles
 DOTFILES="\
   aspell.en.prepl \
   aspell.en.pws \
-  bash_eternal_history \
   config/pet/config.toml \
   config/pet/snippet.toml \
   ctags \
   gitconfig \
   gvimrc \
   tmux.conf \
-  viminfo \
   vimrc \
-  zsh_history \
   zshrc \
   "
 
