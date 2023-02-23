@@ -1,4 +1,4 @@
-personal_ws-1.1 en 412 
+personal_ws-1.1 en 426
 AE
 AES
 ASIC
@@ -34,6 +34,7 @@ Copackaged
 Covid
 DCMAKE
 DDR
+DFT
 DNETLIST
 DType
 DaVinci
@@ -145,9 +146,11 @@ PRNGs
 PYTHONPATH
 Panneton
 Peta
+Phabricator
 PractRand
 PractRand's
 Procheck
+QoR
 RDMA
 RG
 RGB
@@ -221,6 +224,7 @@ XORWOW
 XORs
 XSL
 Xeon
+YAML
 Yosys
 acidification
 activations
@@ -252,6 +256,7 @@ callee
 capita
 carcassing
 cd
+cfg
 checkbits
 checkword
 clk
@@ -323,8 +328,10 @@ mW
 maxdepth
 md
 mem
+microarchitecture
 microcontroller
 mircoarchitecture
+mk
 mkdir
 mosquitos
 mul
@@ -355,8 +362,10 @@ py
 rainforest
 rangeland
 regs
+repipelining
 reshi
 reslo
+respin
 rooflight
 rooflights
 rotator
@@ -369,6 +378,7 @@ runtimes
 sa
 savannah
 sawn
+signoff
 stochastially
 str
 strided
@@ -401,12 +411,16 @@ virtualenv
 warmup
 wellbeing
 whitepaper
+whitespace
 writeback
 wwf
 xBB
 xCD
 xD
 xFFFFFFFFULL
+xgbuild
+xgtool
+xm
 xml
 xoroshiro
 xorshift
