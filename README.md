@@ -71,6 +71,11 @@ $ git clone https://github.com/thewtex/tmux-mem-cpu-load.git
 $ cd tmux-mem-cpu-load; mkdir build; cd build; cmake ..; make
 ```
 
+Install plugins (in a session):
+```
+prefix + I
+```
+
 ## Ctags
 
 ```

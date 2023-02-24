@@ -61,6 +61,9 @@ vim -c ":PlugInstall"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+# Tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 ## Install ssh-ident (https://github.com/ccontavalli/ssh-ident):
 #mkdir -p ~/bin; wget -O ~/bin/ssh goo.gl/MoJuKB; chmod 0755 ~/bin/ssh
 #echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
