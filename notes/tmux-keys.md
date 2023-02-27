@@ -21,7 +21,9 @@ Windows
 - `:resize-pane -L 4` Resize pane four to the left.
 - `:resize-pane -D 4` Resize pane four up.
 - `:resize-pane -U 4` Resize pane four down.
-- `:swap-windows -s 0 -s 3` Swap windows 0 and 3. 
+- `:swap-windows -s 0 -s 3` Swap windows 0 and 3.
+- `:select-layout even-vertical` Even vertical splits.
+- `:select-layout even-horizontal` Even horizontal splits.
 
 ## References
 
