@@ -91,6 +91,7 @@ Installed as a plugin with a post-build hook, but to run the build:
 $ cd ~/.vim/plugged/YouCompleteMe
 $ python3 install.py --all
 ```
+For C/C++, add ``-DCMAKE_EXPORT_COMPILE_COMMANDS=ON`` when configuring.
 
 ## Inconsolata
 
