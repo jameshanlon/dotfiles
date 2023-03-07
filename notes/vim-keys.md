@@ -4,9 +4,13 @@
 
 ## NERDTree
 
-- `Ctrl+n`    Toggle
 - `Ctrl+f`    Find
+- `m` on a file to modify (rename, delete etc)  
 
+## YouCompleteMe
+  
+See ``README.md``.
+  
 ## Ctags
 
 - `Ctrl+[`    Follow tag
@@ -90,31 +94,3 @@ qd
 q
 10@q
 ```
-
-## CtrlP
-
-`Ctrl+p` search, then:
-- `Ctrl+f` Switch mode
-- `Ctrl+r` Regex mode
-- `Ctrl+v` Open in vertical split
-
-## Buffers
-
-- `Ctrl+b`    New buffer
-- `Ctrl+b`d   Delete buffer
-- `Ctrl+a`    Previous buffer
-- `Ctrl+s`    Next buffer
-- `Ctrl+d`    Last recently used buffer
-
-## Buffergator
-
-`Ctrl+o`, then:
-- `Ctrl+V` Open buffer in vertical split
-- `Ctrl+S` Open buffer in horizontal split
-- `Ctrl+T` Open buffer in new tab
-- `gb`     Switch between most-recently used buffers
-- `cs`     Cycle between sorts
-- `cs`     Cycle between displays
-- `r`      Refresh
-- `d`      Delete a buffer
-- `q`      Quit
