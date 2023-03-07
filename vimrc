@@ -13,6 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-surround'
 Plug 'vhda/verilog_systemverilog.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 call plug#end()
 
 " ### Syntax ###
@@ -101,7 +102,8 @@ set t_Co=256 " Enable 256-colour mode
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
-colorscheme evening 
+"colorscheme evening
+colorscheme default
 
 " ### Path/file expansion in colon-mode ###
 set wildmode=list:longest
