@@ -82,6 +82,16 @@ prefix + I
 $ sudo apt-get install universal-ctags
 ```
 
+## YouCompleteMe
+
+http://ycm-core.github.io/YouCompleteMe/
+
+Installed as a plugin with a post-build hook, but to run the build:
+```
+$ cd ~/.vim/plugged/YouCompleteMe
+$ python3 install.py --all
+```
+
 ## Inconsolata
 
 Install Inconsolata font from [Google Fonts](https://fonts.google.com/specimen/Inconsolata):
