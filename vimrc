@@ -8,12 +8,11 @@ Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'preservim/tagbar'
 Plug 'scrooloose/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-surround'
 Plug 'vhda/verilog_systemverilog.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 call plug#end()
 
 " ### Syntax ###
@@ -156,6 +155,10 @@ nmap <C-o> :Buffers<CR>
 " ### Nerdtree ###
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " ### Terminal ###
 " In split window
