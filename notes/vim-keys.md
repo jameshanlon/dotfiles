@@ -10,6 +10,9 @@
 ## YouCompleteMe
   
 See ``README.md``.
+
+- `yfw` - Find symbol in workspace
+- `yfd` - Find symbol in document
   
 ## Ctags
 

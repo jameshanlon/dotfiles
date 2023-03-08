@@ -101,8 +101,8 @@ set t_Co=256 " Enable 256-colour mode
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
-"colorscheme evening
-colorscheme default
+colorscheme evening
+"colorscheme default
 
 " ### Path/file expansion in colon-mode ###
 set wildmode=list:longest
@@ -178,3 +178,7 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>      " Ctrl+] open def in
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" ### YouCompleteMe ###
+nmap yfw <Plug>(YCMFindSymbolInWorkspace)
+nmap yfd <Plug>(YCMFindSymbolInDocument)
