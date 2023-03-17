@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-surround'
 Plug 'vhda/verilog_systemverilog.vim'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
 call plug#end()
 
 " ### Syntax ###
@@ -159,6 +159,8 @@ nmap <C-f> :NERDTreeFind<CR>
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " ### Terminal ###
 " In split window
@@ -182,3 +184,13 @@ nmap ga <Plug>(EasyAlign)
 " ### YouCompleteMe ###
 nmap yfw <Plug>(YCMFindSymbolInWorkspace)
 nmap yfd <Plug>(YCMFindSymbolInDocument)
+nnoremap <leader>yfc :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>gic :rightbelow vertical YcmCompleter GoToInclude<CR>
+nnoremap <leader>gdc :rightbelow vertical YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gdf :rightbelow vertical YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gip :rightbelow vertical YcmCompleter GoToImprecise<CR>
+nnoremap <leader>grr :rightbelow vertical YcmCompleter RefactorRename
+nnoremap <leader>grf :YcmCompleter GoToReferences<CR>
+nnoremap ;d          :rightbelow vertical YcmCompleter GoToDefinition<CR>
+nnoremap ;r          :YcmCompleter GoToReferences<CR>
+nnoremap <leader>f   :YcmCompleter FixIt<CR>
