@@ -1,6 +1,6 @@
 [user]
-  name = Jamie Hanlon
-	email = jamieh@graphcore.ai
+  name = James Hanlon
+  email = mail@jameswhanlon.com 
 [color]
   diff = auto
   status = auto
@@ -11,7 +11,6 @@
   filemode = true
   logallrefupdates = true
   editor = vim
-	autocrlf = input
-  #whitespace = trailing-space,space-before-tab,indent-with-non-tab
+  autocrlf = input
 [push]
   default = matching
