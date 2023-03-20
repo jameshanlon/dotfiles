@@ -1,4 +1,7 @@
+" ############
 " ### Plug ###
+" ############
+
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
@@ -15,7 +18,10 @@ Plug 'vhda/verilog_systemverilog.vim'
 Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
 call plug#end()
 
+" ##############
 " ### Syntax ###
+" ##############
+
 if has('autocmd')
   filetype plugin indent on
 endif
@@ -24,14 +30,17 @@ if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
+" Makefiles
 augroup filetype
   au! BufRead,BufNewFile *Makefile* set filetype=make
 augroup END
 
+" LLVM
 augroup filetype
   au! BufRead,BufNewFile *.ll set filetype=llvm
 augroup END
 
+" Tablegen
 augroup filetype
   au! BufRead,BufNewFile *.td set filetype=tablegen
 augroup END
@@ -39,7 +48,10 @@ augroup END
 " In Makefiles, don't expand tabs to spaces
 autocmd FileType make set noexpandtab
 
+" ####################
 " ### Misc options ###
+" ####################
+
 set encoding=utf-8
 set backspace=indent,eol,start
 set textwidth=79
@@ -58,15 +70,20 @@ set pastetoggle=<F2>
 set backupdir-=.
 set backupdir^=~/tmp " Redirect backups
 
+" ############
 " ### Tabs ###
+" ############
+
 set smarttab
 set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+
 " Opening tabs
 nnoremap <C-t> :tabnew<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
+
 " Switching between tabs
 nnoremap H gT
 nnoremap L gt
@@ -83,32 +100,47 @@ set noautoindent
 set hlsearch  " Highlight search phrases
 set incsearch " Highlight as you type
 set noswapfile
+
 " Always search forward
 nnoremap <expr> n 'Nn'[v:searchforward]
 nnoremap <expr> N 'nN'[v:searchforward]
+
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
+" ##############
 " ### Splits ###
+" ##############
+
 set splitbelow
 set splitright
 
+" ###############
 " ### Colours ###
+" ###############
+
 set t_Co=256 " Enable 256-colour mode
+
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
+
 colorscheme evening
 "colorscheme default
 
+" #########################################
 " ### Path/file expansion in colon-mode ###
+" #########################################
 set wildmode=list:longest
 set wildchar=<TAB>
 
+" #################
 " ### Scrolling ###
+" #################
+
 if !&scrolloff
   set scrolloff=1
 endif
@@ -140,48 +172,86 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
+" ################
 " ### Commands ###
+" ################
+
 " Change directory to that of current file.
 command! RebaseCwd :cd %:p:h
+
 " Delete trailing whitespace and tabs at the end of each line
 command! DeleteTrailingWs :%s/\s\+$//
+
 " Convert all tab characters to two spaces
 command! Untab :%s/\t/  /g
 
+" ###########
 " ### fzf ###
+" ###########
+
 nmap <C-p> :Files<CR>
 nmap <C-o> :Buffers<CR>
 
+" ################
 " ### Nerdtree ###
+" ################
+
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFind<CR>
+
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" ####################
+" ### Vim Fugitive ###
+" ####################
+
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Git blame<CR>
+nnoremap <silent> <leader>gL :Glog<CR>
+
+" ################
 " ### Terminal ###
+" ################
+
 " In split window
 map <Leader>t :vert term ++close<cr>
 tmap <Leader>t <c-w>:term ++close<cr>
+
 " In new tab
 map <Leader>T :tab term ++close<cr>
 tmap <Leader>T <c-w>:tab term ++close<cr>
 
+" #############
 " ### Ctags ###
+" #############
+
 set tags=./tags;/                                           " Look up recursively for a tag file
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " Ctrl+\ open def in new tab
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>      " Ctrl+] open def in a vertical split
 
+" ##################
 " ### Easy align ###
+" ##################
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
+
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" #####################
 " ### YouCompleteMe ###
+" #####################
+
 nmap yfw <Plug>(YCMFindSymbolInWorkspace)
 nmap yfd <Plug>(YCMFindSymbolInDocument)
 nnoremap <leader>yfc :YcmForceCompileAndDiagnostics<CR>
