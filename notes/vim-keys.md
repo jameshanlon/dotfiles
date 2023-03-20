@@ -1,7 +1,5 @@
 # Vim keys
 
-- `:e **/<name>` Open file with <name> from any directory.
-
 ## NERDTree
 
 - `Ctrl+f`    Find
@@ -13,16 +11,32 @@ See ``README.md``.
 
 - `yfw` - Find symbol in workspace
 - `yfd` - Find symbol in document
+- `;d` - Go to definition
+- `;r` - Go to references
   
 ## Ctags
 
 - `Ctrl+[`    Follow tag
 - `Ctrl+t`    Back
 
+## Terminal
+  
+- `:vert term`
+- `Ctrl+W`, `Ctrl+W` or `Ctrl+W, `p` - Move to previous pane.
+- `Ctrl+W`, `N` - Normal mode
+- `Ctrl+W`, " " - Paste
+- `<Leader>t` - New terminal pane
+- `<Leader>T` - New terminal tab
+  
 ## Commands
 
 - `:DeleteTrailingWhitespace`
 - `:Untab`
+- `:RebaseCwd`
+- `:Git blame` or `<Leader>gb`
+- `:Gstatus` or `<Leader>gs`
+- `:Glog` or `<Leader>gl`
+- `:Gdiff` or `<Leader>gd`
 
 ## Movement
 
@@ -42,7 +56,11 @@ See ``README.md``.
 - `E`  beginning of next word, skip ws
 - `(`/`)`  next/previous sentence
 - `{`/`}`  next/previous paragraph
-- `gt` goto file (curson on valid path)
+  
+Go to file (with cursor on valid path):
+- `gt` In buffer
+- `Ctrl+W`, `f` In split
+- `Ctrl+W`, `gf` In tab
 
 ## Editing
 
@@ -84,6 +102,10 @@ Note:
 
 - Replace visual selection: `s` replacement <Esc>
 
+## Misc commands
+  
+- `:e **/<name>` Open file with <name> from any directory.
+  
 ## Macros
 
 - Record: `q<letter> ... <commands> ... q`
