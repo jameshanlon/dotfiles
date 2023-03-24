@@ -1,42 +1,56 @@
 # Vim keys
 
-## NERDTree
-
-- `Ctrl+f`    Find
-- `m` on a file to modify (rename, delete etc)  
-
-## YouCompleteMe
-  
-See ``README.md``.
-
-- `yfw` - Find symbol in workspace
-- `yfd` - Find symbol in document
-- `;d` - Go to definition
-- `;r` - Go to references
-  
-## Ctags
-
-- `Ctrl+[`    Follow tag
-- `Ctrl+t`    Back
-
-## Terminal
-  
-- `:vert term`
-- `Ctrl+W`, `Ctrl+W` or `Ctrl+W, `p` - Move to previous pane.
-- `Ctrl+W`, `N` - Normal mode
-- `Ctrl+W`, " " - Paste
-- `<Leader>t` - New terminal pane
-- `<Leader>T` - New terminal tab
-  
-## Commands
+## General
 
 - `:DeleteTrailingWhitespace`
 - `:Untab`
 - `:RebaseCwd`
+- `Ctrl+p` - Search files
+- `Ctrl+o` - Search buffers
+
+## Git
+
+- `:Commits` or `<Leader>gl`
+- `:BCommits` or `<Leader>ga`
 - `:Git blame` or `<Leader>gb`
 - `:Gstatus` or `<Leader>gs`
 - `:Glog` or `<Leader>gl`
 - `:Gdiff` or `<Leader>gd`
+
+## NERDTree
+
+- `Ctrl+f`    Find
+- `m` on a file to modify (rename, delete etc)
+
+## YouCompleteMe
+
+- `yfw` - Find symbol in workspace
+- `yfd` - Find symbol in document
+- `<leader>yfc` Force compile
+- `<leader>gic` Go to include
+- `<leader>gdc` Go to declaration
+- `<leader>gdf` Go to definition (or `;d`)
+- `<leader>gip` Go to imprecise
+- `<leader>grf` Go to references (or `;r`)
+- `<leader>grr` Refactor rename
+- `<leader>f` Fix it
+
+## Splits
+
+- ``Ctrl+w _`` maximise height of current split
+- ``Ctrl+w |`` maximise width of current split
+- ``Ctrl+w =`` equalise size of splits
+- ``Ctrl+w R`` swap top/bottom or left/right split
+- ``Ctrl+w T`` move current window into a new tab
+
+## Tabs
+
+- `Ctrl+t` Open new tab
+- `H` Select left tab
+- `L` Select right tab
+- `t0` Select tab 0
+- `t1 Select tab 1
+- Etc
 
 ## Movement
 
@@ -56,7 +70,7 @@ See ``README.md``.
 - `E`  beginning of next word, skip ws
 - `(`/`)`  next/previous sentence
 - `{`/`}`  next/previous paragraph
-  
+
 Go to file (with cursor on valid path):
 - `gt` In buffer
 - `Ctrl+W`, `f` In split
@@ -72,14 +86,6 @@ Go to file (with cursor on valid path):
 - `cw`    change word from cursor
 - `D`     delete until end of line
 - `A`     append to end of line
-
-## Splits
-
-- ``Ctrl+w _`` maximise height of current split
-- ``Ctrl+w |`` maximise width of current split
-- ``Ctrl+w =`` equalise size of splits
-- ``Ctrl+w R`` swap top/bottom or left/right split
-- ``Ctrl+w T`` move current window into a new tab
 
 ## g
 
@@ -102,10 +108,24 @@ Note:
 
 - Replace visual selection: `s` replacement <Esc>
 
+## Ctags
+
+- `Ctrl+[`    Follow tag
+- `Ctrl+t`    Back
+
+## Terminal
+
+- `:vert term`
+- `Ctrl+W`, `Ctrl+W` or `Ctrl+W, `p` - Move to previous pane.
+- `Ctrl+W`, `N` - Normal mode
+- `Ctrl+W`, " " - Paste
+- `<Leader>t` - New terminal pane
+- `<Leader>T` - New terminal tab
+
 ## Misc commands
-  
+
 - `:e **/<name>` Open file with <name> from any directory.
-  
+
 ## Macros
 
 - Record: `q<letter> ... <commands> ... q`
