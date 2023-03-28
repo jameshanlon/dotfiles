@@ -22,8 +22,6 @@ set modeline
 set nojoinspaces  " No double spaces after punctuation
 set nostartofline " Do not jump to first character with page commands.
 set pastetoggle=<F2>
-set backupdir-=.
-set backupdir^=~/tmp " Redirect backups
 set smarttab
 set expandtab
 set tabstop=2
@@ -32,9 +30,11 @@ set shiftwidth=2
 set noautoindent
 set hlsearch  " Highlight search phrases
 set incsearch " Highlight as you type
-set noswapfile
 set splitbelow
 set splitright
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
@@ -46,7 +46,8 @@ autocmd BufReadPost *
 " ### Colours ###
 " ###############
 
-set t_Co=256 " Enable 256-colour mode
+" Enable 256-colour mode
+set t_Co=256
 
 " Allow color schemes to do bright colors without forcing bold.
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
@@ -63,9 +64,11 @@ colorscheme evening
 if !&scrolloff
   set scrolloff=1
 endif
+
 if !&sidescrolloff
   set sidescrolloff=5
 endif
+
 set display+=lastline
 
 " Set command history length.
@@ -232,7 +235,7 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 
 nmap <silent> <leader>gl :Commits<CR>
 nmap <silent> <leader>ga :BCommits<CR>
-nmap <silent> <leader>gs :Gstatus<CR>
+nmap <silent> <leader>gs :Git<CR>
 nmap <silent> <leader>gd :Gdiff<CR>
 nmap <silent> <leader>gc :Gcommit<CR>
 nmap <silent> <leader>gb :Git blame<CR>
