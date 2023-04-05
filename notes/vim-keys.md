@@ -110,6 +110,8 @@ Note:
 
 ## Ctags
 
+https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
+  
 - `Ctrl+[`    Follow tag
 - `Ctrl+t`    Back
 
