@@ -108,23 +108,3 @@ Mount a VirtualBox shared folder:
 $ mkdir ~/VBoxShare
 $ sudo mount -t vboxsf -o rw,uid=1000,gid=1000 VBoxShare ~/VBoxShare
 ```
-
-## Pet
-
-Install [pet](https://github.com/knqyf263/pet)
-from a [binary release](https://github.com/knqyf263/pet/releases).
-
-Key bindings that can be added to bashrc:
-```
-# Pet
-function prev() {
-  PREV=$(fc -lrn | head -n 1)
-  sh -c "pet new `printf %q "$PREV"`"
-}
-function pet-select() {
-  BUFFER=$(pet search --query "$READLINE_LINE")
-  READLINE_LINE=$BUFFER
-  READLINE_POINT=${#BUFFER}
-}
-bind -x '"\C-p": pet-select'
-```
