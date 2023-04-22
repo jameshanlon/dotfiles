@@ -173,6 +173,13 @@ if maparg('<C-L>', 'n') ==# ''
   nmap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
+" ####################
+" ### clang-format ###
+" ####################
+
+map <C-K> :py3f /usr/share/clang/clang-format-10/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /usr/share/clang/clang-format-10/clang-format.py<cr>
+
 " ############
 " ### Plug ###
 " ############
