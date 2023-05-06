@@ -21,7 +21,6 @@ set noerrorbells
 set modeline
 set nojoinspaces  " No double spaces after punctuation
 set nostartofline " Do not jump to first character with page commands.
-set pastetoggle=<F2>
 set smarttab
 set expandtab
 set tabstop=2
@@ -165,8 +164,8 @@ nmap <Space> @q
 " ##############
 
 " Always search forward
-nmap <expr> n 'Nn'[v:searchforward]
-nmap <expr> N 'nN'[v:searchforward]
+nnoremap <expr> n 'Nn'[v:searchforward]
+nnoremap <expr> N 'nN'[v:searchforward]
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
