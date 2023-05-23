@@ -17,11 +17,10 @@ $ bash setup.sh
 
 ## OSX
 
-Install Homebrew and packages:
+Install Homebrew and useful packages:
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install wget
-$ brew install fd
+$ brew install wget fd ripgrep ncdu
 ```
 
 ## Git
