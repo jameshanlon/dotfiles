@@ -2,7 +2,7 @@
 
 ## Keys
 
-`Ctrl+a`
+`Ctrl+a` then...
 
 Panes
 
@@ -10,10 +10,15 @@ Panes
 - `{` Move pane left.
 - `}` Move pane right.
 - `>` Pane options menu.
+- `[` Copy mode
 
 Windows
 
 - `<` Window options menu.
+
+Config
+
+- `r` reload configuration.
 
 ## Commands
 
@@ -24,6 +29,10 @@ Windows
 - `:swap-windows -s 0 -s 3` Swap windows 0 and 3.
 - `:select-layout even-vertical` Even vertical splits.
 - `:select-layout even-horizontal` Even horizontal splits.
+
+## Other
+
+- `reset` to fix terminal UI issues (eg not displaying typed command).
 
 ## References
 
