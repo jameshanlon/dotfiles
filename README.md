@@ -23,6 +23,9 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 $ brew install wget fd ripgrep ncdu
 ```
 
+iTerm2:
+Settings > Profiles > Keys: Left option key: Meta (for Bash).
+
 ## Git
 
 Setup git:
