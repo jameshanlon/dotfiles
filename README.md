@@ -2,9 +2,9 @@
 
 ## Starting from scratch
 
-Install programs and generate SSH key:
+Install programs and generate SSH key (Ubuntu 22.04):
 ```
-$ sudo apt-get install git vim vim-gtk
+$ sudo apt-get install git vim cmake clang-14 python3-dev
 $ ssh-keygen -t rsa -b 4096 -C "email@domain.com"
 ```
 
