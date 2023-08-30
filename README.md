@@ -14,6 +14,10 @@ $ git clone git@github.com:jameshanlon/dotfiles.git
 $ cd dotfiles
 $ bash setup.sh
 ```
+Remember to:
+
+- Update the email address in `.gitconfig` if necessary.
+- Copy the `bashrc` or parts of it.
 
 ## OSX
 
