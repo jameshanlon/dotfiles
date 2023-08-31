@@ -1,17 +1,12 @@
 # .bashrc
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
-
 # Environment
-export EDITOR=nvim
+export EDITOR=vim
 export GREP_COLOR="1;33"
 export TERM=xterm-256color
 
 # Commands
-alias ls='ls --color=auto -h'
+alias ls='ls --color=auto'
 alias ll='ls -alFH'
 alias lt='ls -ltr'
 alias lr='ls -R'
