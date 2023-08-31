@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DIR=~/dotfiles
+DIR=$HOME/dotfiles
 DOTFILES="\
   aspell.en.prepl \
   aspell.en.pws \
