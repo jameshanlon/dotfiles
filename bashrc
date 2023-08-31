@@ -17,6 +17,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gc='git commit'
 alias gca='git commit -a'
+alias ssh_agent='eval "$(ssh-agent -s)"'
 
 # Key bindings
 # http://www.gnu.org/software/bash/manual/html_node/Commands-For-Killing.html#Commands-For-Killing
