@@ -2,10 +2,15 @@
 
 ## Starting from scratch
 
-Install programs and generate SSH key (Ubuntu 22.04):
+Generate SSH key:
 ```
-$ sudo apt-get install git vim cmake clang-14 python3-dev
-$ ssh-keygen -t rsa -b 4096 -C "email@domain.com"
+$ ssh-keygen -t ed25519 -C "mail@jameswhanlon.com"
+$ ssh-copy-id <host>
+```
+Git config:
+```
+$ git config --global user.name "James Hanlon"
+$ git config --global user.email "mail@jameswhanlon.com"
 ```
 
 Clone and install dotfiles:
@@ -14,10 +19,13 @@ $ git clone git@github.com:jameshanlon/dotfiles.git
 $ cd dotfiles
 $ bash setup.sh
 ```
-Remember to:
+Copy the `bashrc` or parts of it.
 
-- Update the email address in `.gitconfig` if necessary.
-- Copy the `bashrc` or parts of it.
+## Ubuntu 22.04
+
+```
+$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep
+```
 
 ## OSX
 
@@ -30,36 +38,13 @@ $ brew install wget fd ripgrep ncdu
 iTerm2:
 Settings > Profiles > Keys: Left option key: Meta (for Bash).
 
-## Git
-
-Setup git:
-```
-$ git config --global user.name "James Hanlon"
-$ git config --global user.email "mail@jameswhanlon.com"
-```
-
-## Oh-my-ZSH
-
-Setup oh-my-zsh (https://ohmyz.sh/#install):
-```
-$ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
-
 ## Fd
 
-Install [fd](https://github.com/sharkdp/fd), eg:
-```
-$ sudo apt-get install fd-find
-```
-Or from a [binary release](https://github.com/sharkdp/fd/releases).
+Install [fd](https://github.com/sharkdp/fd) from a [binary release](https://github.com/sharkdp/fd/releases).
 
 ## Ripgrep
 
-Install [ripgrep](https://github.com/BurntSushi/ripgrep), eg:
-```
-$ sudo apt-get install ripgrep
-```
-Or from a [binary release](https://github.com/BurntSushi/ripgrep/releases).
+Install [ripgrep](https://github.com/BurntSushi/ripgrep) from a [binary release](https://github.com/BurntSushi/ripgrep/releases).
 
 ## Tmux
 
@@ -82,15 +67,9 @@ Install plugins (in a session):
 prefix + I
 ```
 
-## Ctags
-
-```
-$ sudo apt-get install universal-ctags
-```
-
 ## YouCompleteMe
 
-http://ycm-core.github.io/YouCompleteMe/
+http://ycm-core.github.io/YouCompleteMe
 
 Installed as a plugin with a post-build hook, but to run the build:
 ```
@@ -98,6 +77,13 @@ $ cd ~/.vim/plugged/YouCompleteMe
 $ python3 install.py --all
 ```
 For C/C++, add ``-DCMAKE_EXPORT_COMPILE_COMMANDS=ON`` when configuring.
+
+## Oh-my-ZSH
+
+Setup oh-my-zsh (https://ohmyz.sh/#install):
+```
+$ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
 
 ## Inconsolata
 
