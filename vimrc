@@ -53,8 +53,7 @@ if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
 
-colorscheme evening
-"colorscheme default
+colorscheme delek
 
 " #################
 " ### Scrolling ###
@@ -176,8 +175,8 @@ endif
 " ### clang-format ###
 " ####################
 
-map <C-K> :py3f /usr/share/clang/clang-format-10/clang-format.py<cr>
-imap <C-K> <c-o>:py3f /usr/share/clang/clang-format-10/clang-format.py<cr>
+map <C-K> :py3f /home/jamie/llvm-project-llvmorg-16.0.0/install/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /home/jamie/llvm-project-llvmorg-16.0.0/install/share/clang/clang-format.py<cr>
 
 " ############
 " ### Plug ###
