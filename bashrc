@@ -42,6 +42,9 @@ source $HOME/.git-completion.bash
 # fzf
 source $HOME/.fzf.bash
 
+# ssh-agent
+source ssh-agent.bash
+
 # Eternal bash history
 # --------------------
 # Undocumented feature which sets the size to "unlimited".
