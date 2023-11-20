@@ -7,6 +7,7 @@ DOTFILES="\
   aspell.en.pws \
   gitconfig \
   gvimrc \
+  ssh-agent.bash \
   tmux.conf \
   vimrc \
   zshrc \
