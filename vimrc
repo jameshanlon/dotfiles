@@ -184,15 +184,18 @@ imap <C-K> <c-o>:py3f /home/jamie/llvm-project-llvmorg-16.0.0/install/share/clan
 
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'flazz/vim-colorschemes'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 Plug 'preservim/tagbar'
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
