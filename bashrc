@@ -43,7 +43,7 @@ source $HOME/.git-completion.bash
 source $HOME/.fzf.bash
 
 # ssh-agent
-source ssh-agent.bash
+source $HOME/.ssh-agent.bash
 
 # Eternal bash history
 # --------------------
