@@ -38,6 +38,17 @@ $ brew install wget fd ripgrep ncdu
 iTerm2:
 Settings > Profiles > Keys: Left option key: Meta (for Bash).
 
+## Vim
+
+Build from source with Python support:
+```
+git clone --depth 1 https://github.com/vim/vim.git
+cd vim/src
+./configure --prefix=$HOME/vim/install --with-features=huge --enable-python3interp
+make
+make install
+```
+
 ## Fd
 
 Install [fd](https://github.com/sharkdp/fd) from a [binary release](https://github.com/sharkdp/fd/releases).
