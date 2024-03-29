@@ -18,3 +18,8 @@ sendername = Fail2Ban
 # interpolation to the chosen action shortcut (e.g.  action_mw, action_mwl, etc) in jail.local
 # globally (section [DEFAULT]) or per specific section
 action = %(action_mwl)s
+
+# See https://github.com/fail2ban/fail2ban/issues/3292#issuecomment-1142503461
+[sshd]
+backend=systemd
+enabled = true
