@@ -24,7 +24,7 @@ Copy the `bashrc` or parts of it.
 ## Ubuntu 22.04
 
 ```
-$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd
+$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd ninja-build
 ```
 
 ## OSX
@@ -85,7 +85,7 @@ http://ycm-core.github.io/YouCompleteMe
 Installed as a plugin with a post-build hook, but to run the build:
 ```
 $ cd ~/.vim/plugged/YouCompleteMe
-$ python3 install.py --all
+$ python3 install.py --clangd-completer
 ```
 For C/C++, add ``-DCMAKE_EXPORT_COMPILE_COMMANDS=ON`` when configuring.
 
