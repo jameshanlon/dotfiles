@@ -24,7 +24,7 @@ Copy the `bashrc` or parts of it.
 ## Ubuntu 22.04
 
 ```
-$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd ninja-build
+$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd ninja-build python3-venv python3-pip tree
 ```
 
 ## OSX
