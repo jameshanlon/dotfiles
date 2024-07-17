@@ -47,3 +47,10 @@ services:
       - NGINX_HOST=
       - NGINX_PORT=80
 
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - 3000:3000
+    volumes:
+      - /home/jamie/dotfiles/services/homepage-config:/app/config

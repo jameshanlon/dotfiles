@@ -1,0 +1,15 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- Applications:
+    - FreshRSS:
+        href: http://192.168.178.97:2080
+        description:
+    - Speedtest Tracker:
+        href: http://192.168.178.97:1080
+        description:
+    - Finances:
+        href: http://192.168.178.97:3080
+        description:
+
