@@ -3,13 +3,46 @@
 # https://gethomepage.dev/latest/configs/services
 
 - Applications:
-    - FreshRSS:
-        href: http://192.168.178.97:2080
-        description:
-    - Speedtest Tracker:
-        href: http://192.168.178.97:1080
-        description:
-    - Finances:
-        href: http://192.168.178.97:3080
-        description:
+  - FreshRSS:
+      href: http://192.168.178.97:2080
+      description:
+      server: local-docker
+      container: freshrss
+      widget:
+        type: freshrss
+        url: http://192.168.178.97:2080
+        username: jamie
+        password: {{HOMEPAGE_VAR_FRESHRSS_API_KEY}}
+  - Speedtest Tracker:
+      href: http://192.168.178.97:1080
+      description:
+      server: local-docker
+      container: speedtest-tracker
+  - Finances:
+      href: http://192.168.178.97:3080
+      description:
+      server: local-docker
+      container: finances
 
+- Synology:
+  - Audio:
+    href: https://diskstation.local/audio
+  - Download:
+    href: https://diskstation.local/download
+  - Drive:
+    href: https://diskstation.local/drive
+  - Files:
+    href: https://diskstation.local/file
+  - Photos:
+    href: https://diskstation.local/photo
+
+- Admin:
+  - Primary router:
+      href: http://192.168.178.1
+      description: FRITZ!Box 7530
+  - Secondary router:
+      href: http://192.168.178.100
+      description: NETGEAR AP WAC104
+  - Battery:
+      href: http://192.168.178.20
+      description: Puredrive nanopi

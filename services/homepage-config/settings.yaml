@@ -5,3 +5,6 @@
 providers:
   openweathermap: openweathermapapikey
   weatherapi: weatherapiapikey
+
+# Extended Docker stats
+#showStats: true

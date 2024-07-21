@@ -6,6 +6,12 @@
     cpu: true
     memory: true
     disk: /
+    cputemp: true
+    tempmin: 0
+    tempmax: 100
+    uptime: true
+    units: metric
+    expanded: true
 
 - search:
     provider: duckduckgo

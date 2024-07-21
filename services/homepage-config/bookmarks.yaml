@@ -2,17 +2,19 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/bookmarks
 
-- Developer:
+- Bookmarks:
     - Github:
         - abbr: GH
-          href: https://github.com/
+          description: github.com
+          href: https://github.com
+    - Github:
+        - abbr: GH
+          description: github.com/jameshanlon
+          href: https://github.com/jameshanlon
 
-- Social:
-    - Reddit:
-        - abbr: RE
-          href: https://reddit.com/
-
-- Entertainment:
-    - YouTube:
-        - abbr: YT
-          href: https://youtube.com/
+- Homepage:
+    - Homepage:
+      - href: http://jameswhanlon.com
+    - Homepage stats:
+      - href: https://jameswhanlon.goatcounter.com
+        description: Goatcounter
