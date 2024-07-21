@@ -11,7 +11,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - APP_KEY=base64:cS4SoC8rtq1Mw5vSPFJ5SD9o5incfvovJ1byOvaT+Og=
+      - APP_KEY=${SPEEDTEST_TRACKER_APP_KEY}
       - DB_CONNECTION=sqlite
       - SPEEDTEST_SCHEDULE=0 * * * *
       - PRUNE_RESULTS_OLDER_THAN=365
