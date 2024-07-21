@@ -18,23 +18,31 @@
       description:
       server: local-docker
       container: speedtest-tracker
+      widget:
+        type: speedtest
+        url: http://192.168.178.97:1080
   - Finances:
       href: http://192.168.178.97:3080
       description:
       server: local-docker
       container: finances
 
-- Synology:
+- Diskstation:
   - Audio:
-    href: https://diskstation.local/audio
+      href: http://diskstation.local/audio
+      description: Audio Station
   - Download:
-    href: https://diskstation.local/download
+      href: http://diskstation.local/download
+      description: Download Station
   - Drive:
-    href: https://diskstation.local/drive
+      href: http://diskstation.local/drive
+      description: Drive
   - Files:
-    href: https://diskstation.local/file
+      href: http://diskstation.local/file
+      description: File Station
   - Photos:
-    href: https://diskstation.local/photo
+      href: http://diskstation.local/photo
+      description: Photos
 
 - Admin:
   - Primary router:
