@@ -2,19 +2,23 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/bookmarks
 
-- Bookmarks:
-    - Github:
-        - abbr: GH
-          description: github.com
-          href: https://github.com
-    - Github:
-        - abbr: GH
-          description: github.com/jameshanlon
-          href: https://github.com/jameshanlon
-
-- Homepage:
+- Personal:
     - Homepage:
       - href: http://jameswhanlon.com
     - Homepage stats:
       - href: https://jameswhanlon.goatcounter.com
         description: Goatcounter
+    - Github:
+        - abbr: GH
+          description: github.com/jameshanlon
+          href: https://github.com/jameshanlon
+    - Google Drive:
+        - abbr: GD
+          description: My Drive
+          href: https://drive.google.com/drive/my-drive
+
+- Bookmarks:
+    - Github:
+        - abbr: GH
+          description: github.com
+          href: https://github.com
