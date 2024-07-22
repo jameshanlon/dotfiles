@@ -4,25 +4,25 @@
 
 - Applications:
   - FreshRSS:
-      href: http://192.168.178.97:2080
+      href: http://teasel.local:2080
       description:
       server: local-docker
       container: freshrss
       widget:
         type: freshrss
-        url: http://192.168.178.97:2080
+        url: http://teasel.local:2080
         username: jamie
         password: {{HOMEPAGE_VAR_FRESHRSS_API_KEY}}
   - Speedtest Tracker:
-      href: http://192.168.178.97:1080
+      href: http://teasel.local:1080
       description:
       server: local-docker
       container: speedtest-tracker
       widget:
         type: speedtest
-        url: http://192.168.178.97:1080
+        url: http://teasel.local:1080
   - Finances:
-      href: http://192.168.178.97:3080
+      href: http://teasel.local:3080
       description:
       server: local-docker
       container: finances
