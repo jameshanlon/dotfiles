@@ -18,6 +18,14 @@
         - abbr: GD
           description: My Drive
           href: https://drive.google.com/drive/my-drive
+    - Garmin Connect:
+        - abbr: GC
+          description: Fitness
+          href: https://connect.garmin.com/modern/home
+    - Strava:
+        - abbr: S
+          description: Fitness
+          href: https://www.strava.com/athletes/5351937
 
 - Bookmarks:
     - Github:
