@@ -4,9 +4,11 @@
 
 - Personal:
     - Homepage:
-      - href: http://jameswhanlon.com
+      - abbr: H
+        href: http://jameswhanlon.com
     - Homepage stats:
-      - href: https://jameswhanlon.goatcounter.com
+      - abbr: H
+        href: https://jameswhanlon.goatcounter.com
         description: Goatcounter
     - Github:
         - abbr: GH
