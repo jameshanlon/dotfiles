@@ -4,7 +4,7 @@
 
 - Applications:
   - FreshRSS:
-      href: http://teasel.local:2080
+      href: http://teasel.home.local:2080
       description:
       server: local-docker
       container: freshrss
@@ -14,7 +14,7 @@
         username: jamie
         password: {{HOMEPAGE_VAR_FRESHRSS_API_KEY}}
   - Speedtest Tracker:
-      href: http://teasel.local:1080
+      href: http://teasel.home.local:1080
       description:
       server: local-docker
       container: speedtest-tracker
@@ -22,7 +22,7 @@
         type: speedtest
         url: http://teasel.local:1080
   - Finances:
-      href: http://teasel.local:3080
+      href: http://teasel.home.local:3080
       description:
       server: local-docker
       container: finances
