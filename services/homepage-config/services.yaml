@@ -2,7 +2,7 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
-- Applications:
+- Services:
   - FreshRSS:
       href: http://teasel.home.local:2080
       description:
@@ -26,6 +26,11 @@
       description:
       server: local-docker
       container: finances
+  - Octograph:
+      href: http://teasel.home.local:3001/d/da368873-f72e-4dd9-a3d5-01a84cff98d8/energy-usage?orgId=1 
+      description:
+      server: local-docker
+      container: octograph-grafana-1
 
 - Diskstation:
   - Audio:
