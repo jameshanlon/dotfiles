@@ -1,4 +1,4 @@
-personal_ws-1.1 en 469
+personal_ws-1.1 en 525 
 AE
 AES
 ASIC
@@ -7,6 +7,7 @@ Anamartic
 AnandTech
 Apptainer
 ArgumentParser
+Arotherm
 Autoconf
 BCFN
 BCPL
@@ -27,6 +28,7 @@ Bubblesort
 CIC
 CMake
 CPython
+CSV
 CUDA
 CWL
 Cellotex
@@ -82,9 +84,11 @@ Gbit
 Gbps
 GeLU
 GitLab
+Github
 Gjrand
 Gjrand's
 Gobain
+Grafana
 Graphcore
 Graphcore's
 Groundworks
@@ -110,6 +114,7 @@ IPUs
 IPs
 ISA
 Iann
+InfluxDB
 Inmos
 JIT
 Krintz
@@ -128,23 +133,25 @@ LFSR's
 LFSRs
 LLVM
 LSFR
+Legionella
 Lemire
 LinearComp
-Lua
 LinkedIn
+Lipman's
+Lua
 MACs
 MLPerf
+MWh
 MXU
 MXUs
 MatrixRank
 Matsumoto
 Mersenne
 Meta's
-Mitigations
-Mostafa
 MinIO
 MiniWDL
 Mitigations
+Mostafa
 Multicore
 NFIX
 NFS
@@ -165,6 +172,7 @@ OAM
 OPR
 OSB
 Oakwood
+Octograph
 OpenCAPI
 OpenROAD
 PCIe
@@ -181,6 +189,7 @@ Pallister
 Panneton
 Peta
 Phabricator
+Podesta
 PractRand
 PractRand's
 Procheck
@@ -216,8 +225,8 @@ Slurm
 Snakemake
 Sobol
 Spacings
-Suh
 Strava
+Suh
 Synopsys
 SystemVerilog
 TBps
@@ -247,6 +256,7 @@ VCL
 VLIW
 VM
 VSPL
+Vaillant
 Verible
 Verilator
 Verilog
@@ -334,6 +344,7 @@ cuRAND
 cwltool
 datapath
 datasheet
+de
 deallocation
 debugability
 decorrelate
@@ -405,6 +416,7 @@ monorepository
 mosquitos
 mul
 multicast
+myVaillant
 natively
 netlist
 netlists
@@ -433,6 +445,7 @@ preprint
 programatically
 pseudorandom
 py
+quantised
 rainforest
 rangeland
 recomputation
@@ -454,9 +467,6 @@ runtimes
 sa
 savannah
 sawn
-scalable
-signoff
-signoffs
 scalability
 scalable
 signoff
