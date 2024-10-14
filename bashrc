@@ -6,7 +6,8 @@ export GREP_COLOR="1;33"
 export TERM=xterm-256color
 
 # Commands
-alias ls='ls --color=auto'
+alias cat='bat'
+alias ls='exa'
 alias ll='ls -alFH'
 alias lt='ls -ltr'
 alias lr='ls -R'
