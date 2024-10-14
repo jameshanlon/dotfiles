@@ -51,11 +51,29 @@ make install
 
 ## Fd
 
+Replacement for `find`.
+
 Install [fd](https://github.com/sharkdp/fd) from a [binary release](https://github.com/sharkdp/fd/releases).
 
 ## Ripgrep
 
+Replacement for `grep`.
+
 Install [ripgrep](https://github.com/BurntSushi/ripgrep) from a [binary release](https://github.com/BurntSushi/ripgrep/releases).
+
+## Bat
+
+Replacement for `cat`.
+
+Install [bat](https://github.com/sharkdp/bat) from a [binary release](https://github.com/sharkdp/bat/releases) or via `apt install bat`.
+
+## Delta
+
+Improved `git diff`.
+
+Install [delta](https://github.com/dandavison/delta) from a
+[binary release](https://github.com/dandavison/delta/releases).
+For Ubuntu/Debian download the `.deb` and run `dpkg -i file.deb`.
 
 ## Tmux
 
