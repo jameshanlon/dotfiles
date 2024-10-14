@@ -24,7 +24,7 @@ Copy the `bashrc` or parts of it.
 ## Ubuntu 22.04
 
 ```
-$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd ninja-build python3-venv python3-pip tree
+$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd ninja-build python3-venv python3-pip tree exa bat
 ```
 
 ## OSX
@@ -60,6 +60,12 @@ Install [fd](https://github.com/sharkdp/fd) from a [binary release](https://gith
 Replacement for `grep`.
 
 Install [ripgrep](https://github.com/BurntSushi/ripgrep) from a [binary release](https://github.com/BurntSushi/ripgrep/releases).
+
+## Exa
+
+Replacement for `ls`.
+
+[Website](https://the.exa.website).
 
 ## Bat
 
