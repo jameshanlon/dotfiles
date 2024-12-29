@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/tmux-mem-cpu-load:$PATH
+export PATH=$HOME/vim:$PATH
 
 # Path to your oh-my-zsh installation.
 #export ZSH="/Users/jamieh/.oh-my-zsh"
@@ -176,7 +178,8 @@ ZSH_THEME="robbyrussell"
 
 # fzf
 # Set fzf installation directory path
-export FZF_BASE=/Users/jamieh/.fzf
+export FZF_BASE=$HOME/.fzf
+source <(fzf --zsh)
 # Uncomment the following line to disable fuzzy completion
 # export DISABLE_FZF_AUTO_COMPLETION="true"
 # Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)
