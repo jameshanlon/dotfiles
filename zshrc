@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jamieh/.oh-my-zsh"
+#export ZSH="/Users/jamieh/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -65,7 +65,8 @@ ZSH_THEME="robbyrussell"
 
 # fzf
 # Set fzf installation directory path
-export FZF_BASE=/Users/jamieh/.fzf
+export FZF_BASE=$HOME/.fzf
+source <(fzf --zsh)
 # Uncomment the following line to disable fuzzy completion
 # export DISABLE_FZF_AUTO_COMPLETION="true"
 # Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)
@@ -107,5 +108,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
