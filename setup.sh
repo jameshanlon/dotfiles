@@ -65,6 +65,20 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # Tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# Tmux mem-cpu-load
+git clone https://github.com/thewtex/tmux-mem-cpu-load.git
+mkdir tmux-mem-cpu-load/build
+(cd tmux-mem-cpu-load/build; \
+  cmake ..; \
+  make)
+
+# vim
+git clone --depth 1 https://github.com/vim/vim.git
+(cd vim/src; \
+  ./configure --prefix=$HOME/vim/install --with-features=huge --enable-python3interp; \
+  make \  
+  make install)
+
 ## Install ssh-ident (https://github.com/ccontavalli/ssh-ident):
 #mkdir -p ~/bin; wget -O ~/bin/ssh goo.gl/MoJuKB; chmod 0755 ~/bin/ssh
 #echo 'export PATH=~/bin:$PATH' >> ~/.bashrc

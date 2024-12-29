@@ -35,17 +35,6 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 $ brew install wget fd ripgrep eza ncdu cmake vim tmux htop freerdp clang-format ninja fzf
 ```
 
-## Vim
-
-Build from source with Python support:
-```
-git clone --depth 1 https://github.com/vim/vim.git
-cd vim/src
-./configure --prefix=$HOME/vim/install --with-features=huge --enable-python3interp
-make
-make install
-```
-
 ## Fd
 
 Replacement for `find`.
@@ -58,11 +47,11 @@ Replacement for `grep`.
 
 Install [ripgrep](https://github.com/BurntSushi/ripgrep) from a [binary release](https://github.com/BurntSushi/ripgrep/releases).
 
-## Exa
+## Eza
 
 Replacement for `ls`.
 
-[Website](https://the.exa.website).
+[Github](https://github.com/eza-community/eza).
 
 ## Bat
 
@@ -82,22 +71,6 @@ For Ubuntu/Debian download the `.deb` and run `dpkg -i file.deb`.
 
 Handy program for system load:
 https://github.com/thewtex/tmux-mem-cpu-load
-
-OSX:
-```
-$ brew install tmux-mem-cpu-load
-```
-
-Build from source:
-```
-$ git clone https://github.com/thewtex/tmux-mem-cpu-load.git
-$ cd tmux-mem-cpu-load; mkdir build; cd build; cmake ..; make
-```
-
-Install plugins (in a session):
-```
-prefix + I
-```
 
 ## YouCompleteMe
 
