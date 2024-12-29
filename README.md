@@ -32,11 +32,8 @@ $ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ cl
 Install Homebrew and useful packages:
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install wget fd ripgrep ncdu cmake vim tmux
+$ brew install wget fd ripgrep ncdu cmake vim tmux htop freerdp clang-format ninja
 ```
-
-iTerm2:
-Settings > Profiles > Keys: Left option key: Meta (for Bash).
 
 ## Vim
 
