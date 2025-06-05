@@ -237,6 +237,16 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" ############
+" ### Tmux ###
+" ############
+
+" Remap increment number under cursor from Ctrl+A to <leader>i
+nnoremap <leader>i <C-a>
+
+" Disable original Ctrl+A mapping so it does nothing or doesn't conflict
+nnoremap <C-a> <Nop>
+
 " ##########################
 " ### Git / Vim Fugitive ###
 " ##########################
