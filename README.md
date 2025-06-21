@@ -42,6 +42,16 @@ Setup oh-my-zsh (https://ohmyz.sh/#install):
 $ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
+## Vim
+
+```
+git clone --depth 1 https://github.com/vim/vim.git
+cd vim/src
+./configure --prefix=/opt/vim --with-features=huge --enable-python3interp
+make -j32
+make install
+```
+
 ## Tools 
 
 - [bat](https://github.com/sharkdp/bat)
