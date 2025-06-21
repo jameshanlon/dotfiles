@@ -25,7 +25,8 @@ Copy the `bashrc`/`zshrc` or parts of it.
 
 Useful packages:
 ```
-$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd clang-format ninja-build python3-venv python3-pip tree eza bat
+$ sudo apt-get update
+$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd clang-format ninja-build python3-venv python3-pip tree bat
 ```
 
 ## OSX
