@@ -38,5 +38,6 @@
       "Bash(curl *)",
       "Bash(wget *)",
       "Bash(sudo *)"
-    ],
+    ]
+}
 }
