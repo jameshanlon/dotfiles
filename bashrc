@@ -63,3 +63,9 @@ export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a"${PROMPT_COMMAND:+"; $PROMPT_COMMAND"}
 # Improve appending to history from multiple sessions
 shopt -s histappend
+
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/vim/src:$PATH
+export PATH=$HOME/llvm-project/build/bin:$PATH
+
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"
