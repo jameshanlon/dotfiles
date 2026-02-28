@@ -13,12 +13,7 @@
   logallrefupdates = true
   editor = vim
   autocrlf = input
-  pager = delta
 [push]
   default = matching
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    navigate = true    # use n and N to move between diff sections
 [diff]
     colorMoved = default
