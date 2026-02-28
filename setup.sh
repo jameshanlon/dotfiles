@@ -5,6 +5,7 @@ DIR=$HOME/dotfiles
 DOTFILES="\
   aspell.en.prepl \
   aspell.en.pws \
+  claude/settings.json \
   gitconfig \
   gvimrc \
   ssh-agent.bash \

@@ -1,0 +1,42 @@
+{
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "LS",
+      "Bash(ls *)",
+      "Bash(git status)",
+      "Bash(git diff)",
+      "Bash(git log *)",
+      "Bash(npm run lint)",
+      "Bash(npm test *)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:*.github.io)"
+    ],
+    "ask": [
+      "Write",
+      "Edit",
+      "Bash(git commit *)",
+      "Bash(npm install *)",
+      "Bash(pip install *)"
+    ],
+    "deny": [
+      "Read(./.env*)",
+      "Read(**/secrets/**)",
+      "Read(~/.ssh/*)",
+      "Write(/etc/*)",
+      "Bash(git push *)",
+      "Bash(rm -rf /)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(sudo *)"
+    ],
+}
