@@ -10,7 +10,7 @@ cd llvm-project
 mkdir build
 mkdir install
 cd build
-cmake -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PWD/../install -G Ninja ../llvm
+cmake -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DENABLE_RUNTIMES="compiler-rt" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PWD/../install -G Ninja ../llvm
 ninja
 ninja install
 ```
