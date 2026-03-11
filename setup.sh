@@ -7,6 +7,7 @@ DOTFILES="\
   aspell.en.pws \
   claude/settings.json \
   gitconfig \
+  vscode/settings.json \
   gvimrc \
   ssh-agent.bash \
   tmux.conf \
