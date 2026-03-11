@@ -7,7 +7,6 @@ DOTFILES="\
   aspell.en.pws \
   claude/settings.json \
   gitconfig \
-  vscode/settings.json \
   gvimrc \
   ssh-agent.bash \
   tmux.conf \
@@ -41,6 +40,21 @@ for f in $DOTFILES; do
   echo "Creating symlink to '.$f' in ~/"
   ln -s "$DIR/$f" "$HOME/.$f"
 done
+
+# VS Code settings (path differs by OS)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  VSCODE_SETTINGS_DIR="$HOME/Library/Application Support/Code/User"
+else
+  VSCODE_SETTINGS_DIR="$HOME/.config/Code/User"
+fi
+mkdir -p "$VSCODE_SETTINGS_DIR"
+if [ -f "$VSCODE_SETTINGS_DIR/settings.json" ] && ! [ -L "$VSCODE_SETTINGS_DIR/settings.json" ]; then
+  date=$(date +"%Y%m%d%H%M%S")
+  mv "$VSCODE_SETTINGS_DIR/settings.json" "$VSCODE_SETTINGS_DIR/settings.json.old.$date"
+else
+  rm -f "$VSCODE_SETTINGS_DIR/settings.json"
+fi
+ln -s "$DIR/vscode/settings.json" "$VSCODE_SETTINGS_DIR/settings.json"
 
 if test -f "$HOME/.bashrc"; then
   cp ~/.bashrc ~/.bashrc-original
