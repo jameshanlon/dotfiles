@@ -13,13 +13,24 @@ $ git config --global user.name "James Hanlon"
 $ git config --global user.email "mail@jameswhanlon.com"
 ```
 
-Clone and install dotfiles and standard setup:
+Clone and install dotfiles:
 ```
 $ git clone git@github.com:jameshanlon/dotfiles.git
 $ cd dotfiles
 $ bash setup.sh
 ```
-Copy the `bashrc`/`zshrc` or parts of it.
+
+`setup.sh` creates symlinks in `$HOME` for: shell configs (zshrc), editor
+configs (vimrc, gvimrc), tmux config, gitconfig, aspell dictionaries, and
+Claude/VS Code settings. It also installs git-prompt, git-completion, Vim-Plug
+(and plugins), fzf, tmux plugin manager, tmux-mem-cpu-load, and builds Vim
+from source with Python 3 support.
+
+VS Code settings are symlinked to the correct OS path:
+- Linux: `~/.config/Code/User/settings.json`
+- macOS: `~/Library/Application Support/Code/User/settings.json`
+
+Copy the `bashrc` or parts of it manually (not symlinked).
 
 ## Ubuntu/Debian
 
@@ -42,10 +53,11 @@ Setup oh-my-zsh (https://ohmyz.sh/#install):
 $ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
-## Tools 
+## Tools
 
 - [bat](https://github.com/sharkdp/bat)
 - [delta](https://github.com/dandavison/delta)
 - [eza](https://github.com/eza-community/eza)
 - [fd](https://github.com/sharkdp/fd)
+- [fzf](https://github.com/junegunn/fzf)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
