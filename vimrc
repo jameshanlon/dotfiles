@@ -7,7 +7,7 @@ set encoding=utf-8
 set fileencodings=utf-8
 scriptencoding utf-8
 set backspace=indent,eol,start
-set textwidth=79
+set textwidth=80
 set laststatus=2  " Always show the status line
 set wildmenu      " Enchanced command-line completion
 set wildmode=list:longest " Path/file expansion in colon-mode
@@ -86,6 +86,11 @@ vnoremap > >gv
 " ### Highlights ###
 " ##################
 
+" Number lines and highlight current line.
+set number
+set cursorline
+set cursorlineopt=number
+
 " Use sensible search highlight colours
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
 
@@ -130,6 +135,11 @@ augroup END
 
 " In Makefiles, don't expand tabs to spaces
 autocmd FileType make set noexpandtab
+
+augroup filetype
+autocmd BufNewFile,BufRead *.sv.jinja :set filetype=systemverilog
+autocmd BufNewFile,BufRead *.inc.jinja :set filetype=cpp
+augroup END
 
 " ############
 " ### Tabs ###
@@ -218,7 +228,7 @@ command! Untab :%s/\t/  /g
 " ### fzf ###
 " ###########
 
-nmap <C-p> :Files<CR>
+nmap <C-p> :GFiles<CR>
 nmap <C-o> :Buffers<CR>
 
 " ################
