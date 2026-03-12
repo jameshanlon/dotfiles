@@ -1,12 +1,4 @@
 {
-  "env": { "ENABLE_LSP_TOOL": "1" },
-  "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
-  },
   "permissions": {
     "allow": [
       "Read",
@@ -103,33 +95,11 @@
       "Bash(xargs *)",
       "Bash(xvfb-run *)",
       "Bash(yq *)",
-      "Bash(zip *)",
-    ],
-    "ask": [
-      "Write",
-      "Edit",
-      "Bash(chown *)",
-      "Bash(crontab *)",
-      "Bash(dd *)",
-      "Bash(eval *)",
-      "Bash(git commit *)",
-      "Bash(halt *)",
-      "Bash(init *)",
-      "Bash(ip6tables *)",
-      "Bash(iptables *)",
-      "Bash(mkfs *)",
-      "Bash(nft *)",
-      "Bash(npm install *)",
-      "Bash(pip install *)",
-      "Bash(rm *)",
-      "Bash(rmdir *)",
-      "Bash(service *)",
-      "Bash(systemctl *)"
+      "Bash(zip *)"
     ],
     "deny": [
       "Bash(chgrp *)",
       "Bash(chpasswd *)",
-      "Bash(curl *)",
       "Bash(git push *)",
       "Bash(groupadd *)",
       "Bash(groupdel *)",
@@ -146,11 +116,41 @@
       "Bash(useradd *)",
       "Bash(userdel *)",
       "Bash(usermod *)",
-      "Bash(wget *)",
       "Read(**/secrets/**)",
       "Read(./.env*)",
       "Read(~/.ssh/*)",
       "Write(/etc/*)"
+    ],
+    "ask": [
+      "Write",
+      "Edit",
+      "Bash(chown *)",
+      "Bash(crontab *)",
+      "Bash(curl *)",
+      "Bash(dd *)",
+      "Bash(eval *)",
+      "Bash(git commit *)",
+      "Bash(halt *)",
+      "Bash(init *)",
+      "Bash(ip6tables *)",
+      "Bash(iptables *)",
+      "Bash(mkfs *)",
+      "Bash(nft *)",
+      "Bash(npm install *)",
+      "Bash(pip install *)",
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(service *)",
+      "Bash(systemctl *)",
+      "Bash(wget *)"
     ]
-  }
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "clangd-lsp@claude-plugins-official": true
+  },
+  "model": "opus"
 }
