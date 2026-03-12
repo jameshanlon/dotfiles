@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/tmux-mem-cpu-load:$PATH
-export PATH=$HOME/vim:$PATH
+export PATH=$HOME/.tmux-mem-cpu-load/build:$PATH
+export PATH=$HOME/vim/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 #export ZSH="/Users/jamieh/.oh-my-zsh"

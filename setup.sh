@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DIR=$HOME/dotfiles
+DIR="$HOME/dotfiles"
 DOTFILES="\
   aspell.en.prepl \
   aspell.en.pws \
@@ -14,14 +14,14 @@ DOTFILES="\
   zshrc \
   "
 
-if ! [ $PWD = $HOME/dotfiles ]; then
+if ! [ "$PWD" = "$HOME/dotfiles" ]; then
   echo "Expecting dotfiles in $HOME"
   exit 1
 fi
 
 echo "Installing in $HOME"
 echo "Changing to $DIR"
-cd $DIR
+cd "$DIR"
 
 for f in $DOTFILES; do
   echo "==== dotfile: $f ===="
@@ -56,42 +56,53 @@ else
 fi
 ln -s "$DIR/vscode/settings.json" "$VSCODE_SETTINGS_DIR/settings.json"
 
-if test -f "$HOME/.bashrc"; then
-  cp ~/.bashrc ~/.bashrc-original
-  cp bashrc ~/.bashrc
+# bashrc is copied (not symlinked) - back up any existing one first
+if [ -f "$HOME/.bashrc" ]; then
+  cp "$HOME/.bashrc" "$HOME/.bashrc-original"
 fi
+cp bashrc "$HOME/.bashrc"
 
 # Git prompt
-curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+curl -fso ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
 # Git completion
-curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+curl -fso ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 # Vim-Plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -c "PlugInstall|qall"
+if [ "${SKIP_BUILD:-0}" != "1" ]; then
+  vim -c "PlugInstall|qall"
+fi
 
 # fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+if [ ! -d ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+fi
 ~/.fzf/install --all
 
 # Tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # Tmux mem-cpu-load
-git clone https://github.com/thewtex/tmux-mem-cpu-load.git ~/.tmux-mem-cpu-load
-mkdir ~/.tmux-mem-cpu-load/build
-(cd ~/.tmux-mem-cpu-load/build; \
-  cmake ..; \
-  make && make install)
+if [ ! -d ~/.tmux-mem-cpu-load ]; then
+  git clone https://github.com/thewtex/tmux-mem-cpu-load.git ~/.tmux-mem-cpu-load
+fi
+if [ "${SKIP_BUILD:-0}" != "1" ]; then
+  mkdir -p ~/.tmux-mem-cpu-load/build
+  (cd ~/.tmux-mem-cpu-load/build; \
+    cmake ..; \
+    make && make install)
+fi
 
 # vim
-git clone --depth 1 https://github.com/vim/vim.git ~/vim-src
-(cd ~/vim-src/src; \
-  ./configure --prefix=$HOME/vim/install --with-features=huge --enable-python3interp; \
-  make && make install)
-
-## Install ssh-ident (https://github.com/ccontavalli/ssh-ident):
-#mkdir -p ~/bin; wget -O ~/bin/ssh goo.gl/MoJuKB; chmod 0755 ~/bin/ssh
-#echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
+if [ ! -d ~/vim-src ]; then
+  git clone --depth 1 https://github.com/vim/vim.git ~/vim-src
+fi
+if [ "${SKIP_BUILD:-0}" != "1" ]; then
+  (cd ~/vim-src/src; \
+    ./configure --prefix="$HOME/vim" --with-features=huge --enable-python3interp; \
+    make && make install)
+fi

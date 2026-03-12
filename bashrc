@@ -63,7 +63,7 @@ PROMPT_COMMAND="history -a"${PROMPT_COMMAND:+"; $PROMPT_COMMAND"}
 shopt -s histappend
 
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/vim/src:$PATH
+export PATH=$HOME/vim/bin:$PATH
 export PATH=$HOME/llvm-project/build/bin:$PATH
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path bash)"

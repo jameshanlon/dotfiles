@@ -61,8 +61,7 @@ These are covered by the Ubuntu/Debian and OSX package lists below.
   symlinked by `setup.sh`.
 - **Tmux plugins**: Open tmux and press `prefix + I` (Ctrl-a + I) to install
   plugins via tpm.
-- **tmux-mem-cpu-load**: Ensure `~/dotfiles/tmux-mem-cpu-load/build` is on
-  your `PATH` (the zshrc adds `~/tmux-mem-cpu-load` to `PATH`).
+- **tmux-mem-cpu-load**: The zshrc adds `~/.tmux-mem-cpu-load/build` to `PATH`.
 
 ## Ubuntu/Debian
 
