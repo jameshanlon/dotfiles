@@ -2,6 +2,7 @@
 set -e
 
 DIR="$HOME/dotfiles"
+CONFIG="$DIR/config"
 DOTFILES="\
   aspell.en.prepl \
   aspell.en.pws \
@@ -38,7 +39,7 @@ for f in $DOTFILES; do
   fi
   # Make symlink
   echo "Creating symlink to '.$f' in ~/"
-  ln -s "$DIR/$f" "$HOME/.$f"
+  ln -s "$CONFIG/$f" "$HOME/.$f"
 done
 
 # VS Code settings (path differs by OS)
@@ -54,13 +55,13 @@ if [ -f "$VSCODE_SETTINGS_DIR/settings.json" ] && ! [ -L "$VSCODE_SETTINGS_DIR/s
 else
   rm -f "$VSCODE_SETTINGS_DIR/settings.json"
 fi
-ln -s "$DIR/vscode/settings.json" "$VSCODE_SETTINGS_DIR/settings.json"
+ln -s "$CONFIG/vscode/settings.json" "$VSCODE_SETTINGS_DIR/settings.json"
 
 # bashrc is copied (not symlinked) - back up any existing one first
 if [ -f "$HOME/.bashrc" ]; then
   cp "$HOME/.bashrc" "$HOME/.bashrc-original"
 fi
-cp bashrc "$HOME/.bashrc"
+cp "$CONFIG/bashrc" "$HOME/.bashrc"
 
 # Git prompt
 curl -fso ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh

@@ -42,18 +42,21 @@ These are covered by the Ubuntu/Debian and OSX package lists below.
 
 ## Files managed
 
+All config files live in `config/` and are symlinked into `~/` by `setup.sh`.
+
 | File | Description |
 |------|-------------|
-| `aspell.en.prepl` | Aspell personal replacements |
-| `aspell.en.pws` | Aspell personal word list |
-| `bashrc` | Bash config (copied manually, not symlinked) |
-| `claude/settings.json` | Claude Code settings |
-| `gitconfig` | Git configuration |
-| `gvimrc` | GVim configuration |
-| `ssh-agent.bash` | Auto-loading SSH agent script |
-| `tmux.conf` | Tmux configuration |
-| `vimrc` | Vim configuration |
-| `zshrc` | Zsh/oh-my-zsh configuration |
+| `config/aspell.en.prepl` | Aspell personal replacements |
+| `config/aspell.en.pws` | Aspell personal word list |
+| `config/bashrc` | Bash config (copied, not symlinked) |
+| `config/claude/settings.json` | Claude Code settings |
+| `config/gitconfig` | Git configuration |
+| `config/gvimrc` | GVim configuration |
+| `config/ssh-agent.bash` | Auto-loading SSH agent script |
+| `config/tmux.conf` | Tmux configuration |
+| `config/vimrc` | Vim configuration |
+| `config/vscode/settings.json` | VS Code settings |
+| `config/zshrc` | Zsh/oh-my-zsh configuration |
 
 ## Post-install steps
 
