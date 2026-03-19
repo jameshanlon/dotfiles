@@ -95,7 +95,7 @@ if [ "${SKIP_BUILD:-0}" != "1" ]; then
   mkdir -p ~/.tmux-mem-cpu-load/build
   (cd ~/.tmux-mem-cpu-load/build; \
     cmake ..; \
-    make && make install)
+    make)
 fi
 
 # vim
