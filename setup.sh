@@ -1,6 +1,34 @@
 #!/bin/bash
 set -e
 
+usage() {
+  cat <<EOF
+Usage: bash setup.sh [OPTIONS]
+
+Install dotfiles by symlinking configs into \$HOME and setting up tools.
+
+Options:
+  -h, --help    Show this help message and exit
+
+Environment variables:
+  SKIP_BUILD=1  Skip building vim, tmux-mem-cpu-load, and vim plugin install
+
+What it does:
+  - Symlinks dotfiles from ~/dotfiles/config/ to ~/.<file>
+  - Backs up existing dotfiles with a .old.<timestamp> suffix
+  - Copies bashrc to ~/.bashrc (not symlinked)
+  - Symlinks VS Code settings
+  - Downloads git-prompt, git-completion, Vim-Plug, fzf
+  - Clones and builds tmux-mem-cpu-load and vim from source
+  - Installs Tmux Plugin Manager (tpm)
+EOF
+}
+
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
 DIR="$HOME/dotfiles"
 CONFIG="$DIR/config"
 DOTFILES="\
