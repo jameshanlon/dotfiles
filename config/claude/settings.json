@@ -2,6 +2,8 @@
   "permissions": {
     "defaultMode": "acceptEdits",
     "allow": [
+      "Write",
+      "Edit",
       "Read",
       "Grep",
       "Glob",
@@ -123,8 +125,6 @@
       "Write(/etc/*)"
     ],
     "ask": [
-      "Write",
-      "Edit",
       "Bash(chown *)",
       "Bash(crontab *)",
       "Bash(curl *)",
