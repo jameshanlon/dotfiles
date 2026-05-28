@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Build from source: ninja, bison, flex, ncurses, libevent, tmux, vim
+# Build from source: ninja, bison, flex, ncurses, libevent, tmux,
+# tmux-mem-cpu-load, vim. tmux-mem-cpu-load needs cmake.
 # Usage:
 #   PREFIX=/some/path ./build-tools.sh
 # Default PREFIX is $HOME/.local
@@ -123,6 +124,7 @@ git clone --depth 1 https://github.com/vim/vim.git "${BUILD_DIR}/vim"
   ./configure --prefix="$PREFIX" \
     --with-features=huge \
     --enable-terminal \
+    --enable-python3interp \
     --disable-gui \
     --without-x \
     --with-tlib="$TLIB" \
@@ -133,6 +135,19 @@ git clone --depth 1 https://github.com/vim/vim.git "${BUILD_DIR}/vim"
 hash -r
 echo "vim installed to $PREFIX/bin"
 
+echo "=== Cloning and building tmux-mem-cpu-load (HEAD) ==="
+command -v cmake >/dev/null 2>&1 || { echo "ERROR: cmake is required to build tmux-mem-cpu-load" >&2; exit 1; }
+rm -rf "${BUILD_DIR}/tmux-mem-cpu-load"
+git clone --depth 1 https://github.com/thewtex/tmux-mem-cpu-load.git "${BUILD_DIR}/tmux-mem-cpu-load"
+(
+  cd "${BUILD_DIR}/tmux-mem-cpu-load"
+  cmake -DCMAKE_INSTALL_PREFIX="$PREFIX" .
+  make -j"$JOBS"
+  make install
+)
+hash -r
+echo "tmux-mem-cpu-load installed to $PREFIX/bin"
+
 echo
 echo "All done. Add $PREFIX/bin to your PATH if not already:"
 echo "  export PATH=\"$PREFIX/bin:\$PATH\""
@@ -140,6 +155,6 @@ echo "If binaries fail to run due to missing libraries:"
 echo "  export LD_LIBRARY_PATH=\"$PREFIX/lib:\$LD_LIBRARY_PATH\""
 echo
 echo "Installed components:"
-for b in ninja bison flex tmux vim; do
+for b in ninja bison flex tmux tmux-mem-cpu-load vim; do
   printf "  %-8s -> %s\n" "$b" "$(command -v "$b" || echo 'not found')"
 done

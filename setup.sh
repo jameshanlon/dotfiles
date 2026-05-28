@@ -11,7 +11,7 @@ Options:
   -h, --help    Show this help message and exit
 
 Environment variables:
-  SKIP_BUILD=1  Skip building vim, tmux-mem-cpu-load, and vim plugin install
+  SKIP_BUILD=1  Skip vim plugin install and building tools via build-tools.sh
 
 What it does:
   - Symlinks dotfiles from ~/dotfiles/config/ to ~/.<file>
@@ -19,8 +19,9 @@ What it does:
   - Copies bashrc to ~/.bashrc (not symlinked)
   - Symlinks VS Code settings
   - Downloads git-prompt, git-completion, Vim-Plug, fzf
-  - Clones and builds tmux-mem-cpu-load and vim from source
   - Installs Tmux Plugin Manager (tpm)
+  - Builds tools from source via build-tools.sh (ninja, bison, flex,
+    ncurses, libevent, tmux, tmux-mem-cpu-load, vim)
 EOF
 }
 
@@ -115,23 +116,8 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# Tmux mem-cpu-load
-if [ ! -d ~/.tmux-mem-cpu-load ]; then
-  git clone https://github.com/thewtex/tmux-mem-cpu-load.git ~/.tmux-mem-cpu-load
-fi
+# Build tools from source (ninja, bison, flex, ncurses, libevent, tmux,
+# tmux-mem-cpu-load, vim) via build-tools.sh.
 if [ "${SKIP_BUILD:-0}" != "1" ]; then
-  mkdir -p ~/.tmux-mem-cpu-load/build
-  (cd ~/.tmux-mem-cpu-load/build; \
-    cmake ..; \
-    make)
-fi
-
-# vim
-if [ ! -d ~/vim-src ]; then
-  git clone --depth 1 https://github.com/vim/vim.git ~/vim-src
-fi
-if [ "${SKIP_BUILD:-0}" != "1" ]; then
-  (cd ~/vim-src/src; \
-    ./configure --prefix="$HOME/vim" --with-features=huge --enable-python3interp; \
-    make && make install)
+  bash "$DIR/build-tools.sh"
 fi
