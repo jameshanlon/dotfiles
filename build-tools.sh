@@ -92,11 +92,19 @@ build_tarball "flex ${FLEX_VER}" "flex-${FLEX_VER}" \
 
 build_tarball "ncurses ${NCURSES_VER}" "ncurses-${NCURSES_VER}" \
   "https://ftp.gnu.org/gnu/ncurses/ncurses-${NCURSES_VER}.tar.gz" \
-  --with-shared --without-debug --with-termlib
+  --with-shared --without-debug --with-termlib \
+  --enable-pc-files --with-pkg-config-libdir="${PREFIX}/lib/pkgconfig"
 
 build_tarball "libevent ${LIBEVENT_TAG}" "${LIBEVENT_NAME}" \
-  "https://github.com/libevent/libevent/releases/download/${LIBEVENT_TAG}/${LIBEVENT_NAME}.tar.gz"
+  "https://github.com/libevent/libevent/releases/download/${LIBEVENT_TAG}/${LIBEVENT_NAME}.tar.gz" \
+  --enable-shared
 
+# tmux locates ncurses and libevent via PKG_CONFIG_PATH (exported above);
+# ncurses' --enable-pc-files emits the .pc files, including the libtinfo split.
+build_tarball "tmux ${TMUX_VER}" "tmux-${TMUX_VER}" \
+  "https://github.com/tmux/tmux/releases/download/${TMUX_VER}/tmux-${TMUX_VER}.tar.gz"
+
+# vim links ncurses directly (no pkg-config), so detect the termlib split.
 # ncurses was built with --with-termlib, which splits terminfo into libtinfo.
 TLIB="ncurses"
 if [ -e "${PREFIX}/lib/libncursesw.so" ] || [ -e "${PREFIX}/lib/libncursesw.a" ]; then
@@ -106,10 +114,6 @@ EXTRA_LIBS=""
 if [ -e "${PREFIX}/lib/libtinfo.so" ] || [ -e "${PREFIX}/lib/libtinfo.a" ]; then
   EXTRA_LIBS="-ltinfo"
 fi
-
-build_tarball "tmux ${TMUX_VER}" "tmux-${TMUX_VER}" \
-  "https://github.com/tmux/tmux/releases/download/${TMUX_VER}/tmux-${TMUX_VER}.tar.gz" \
-  LIBS="$EXTRA_LIBS"
 
 echo "=== Cloning and building vim (HEAD) ==="
 rm -rf "${BUILD_DIR}/vim"
