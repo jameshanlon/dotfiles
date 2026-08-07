@@ -49,6 +49,7 @@ All config files live in `config/` and are symlinked into `~/` by `setup.sh`.
 | `config/aspell.en.prepl` | Aspell personal replacements |
 | `config/aspell.en.pws` | Aspell personal word list |
 | `config/bashrc` | Bash config (copied, not symlinked) |
+| `config/claude/CLAUDE.md` | Claude Code global rules |
 | `config/claude/settings.json` | Claude Code settings |
 | `config/gitconfig` | Git configuration |
 | `config/gvimrc` | GVim configuration |

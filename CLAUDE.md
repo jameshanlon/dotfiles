@@ -23,6 +23,7 @@ The script symlinks each dotfile from `~/dotfiles/<file>` to `~/.<file>`. Existi
 - **tmux.conf** — Tmux config with tpm plugins and tmux-mem-cpu-load in the status bar.
 - **gitconfig** — Git user identity, delta as pager, and common aliases.
 - **claude/settings.json** — Claude Code IDE settings (symlinked to `~/.claude/settings.json`).
+- **claude/CLAUDE.md** — Global Claude Code rules applied across all projects (symlinked to `~/.claude/CLAUDE.md`).
 
 ## Architecture
 

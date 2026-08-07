@@ -35,6 +35,7 @@ CONFIG="$DIR/config"
 DOTFILES="\
   aspell.en.prepl \
   aspell.en.pws \
+  claude/CLAUDE.md \
   claude/settings.json \
   gitconfig \
   gvimrc \
