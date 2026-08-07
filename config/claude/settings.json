@@ -1,6 +1,5 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits",
     "allow": [
       "Write",
       "Edit",
@@ -144,8 +143,10 @@
       "Bash(service *)",
       "Bash(systemctl *)",
       "Bash(wget *)"
-    ]
+    ],
+    "defaultMode": "acceptEdits"
   },
+  "model": "opus",
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
@@ -153,5 +154,5 @@
     "skill-creator@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true
   },
-  "model": "opus"
+  "agentPushNotifEnabled": true
 }
