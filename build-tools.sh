@@ -100,6 +100,15 @@ build_tarball "libevent ${LIBEVENT_TAG}" "${LIBEVENT_NAME}" \
   "https://github.com/libevent/libevent/releases/download/${LIBEVENT_TAG}/${LIBEVENT_NAME}.tar.gz" \
   --enable-shared
 
+# tmux locates ncurses and libevent via PKG_CONFIG_PATH (exported above);
+# ncurses' --enable-pc-files emits the .pc files, including the libtinfo split.
+# --disable-new-dtags makes the $PREFIX/lib rpath a DT_RPATH (not DT_RUNPATH)
+# so it also resolves libtinfo, which ncursesw pulls in transitively;
+# otherwise the loader falls back to a system libtinfo and the server crashes.
+build_tarball "tmux ${TMUX_VER}" "tmux-${TMUX_VER}" \
+  "https://github.com/tmux/tmux/releases/download/${TMUX_VER}/tmux-${TMUX_VER}.tar.gz" \
+  LDFLAGS="${LDFLAGS} -Wl,--disable-new-dtags"
+
 # vim links ncurses directly (no pkg-config), so detect the termlib split.
 # ncurses was built with --with-termlib, which splits terminfo into libtinfo.
 TLIB="ncurses"
