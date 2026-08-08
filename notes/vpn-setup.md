@@ -7,21 +7,18 @@ Download opvn configuration from Synology.
 https://kb.synology.com/en-af/DSM/help/VPNCenter/vpn_setup?version=7
 
 Disable compression.
+
 Set cipher to AES-256-GCM
 
 In exported VPNConfig.ovpn
 
 Change 'tls-client' to 'client'.
 
-Add:
-
-  client-cert-not-required
-
 Change 'cipher AES-256-CBC' to cipher AES-256-GCM'
 
-Remove:
+Remove 'pull'
 
-  pull
+Uncomment 'float'
 
 Change:
 
