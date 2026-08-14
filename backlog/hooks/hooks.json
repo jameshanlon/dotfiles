@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "dir=.claude/backlog/tasks; if [ -d \"$dir\" ]; then open=$(grep -l '^status: open' \"$dir\"/*.md 2>/dev/null | wc -l | tr -d ' '); prog=$(grep -l '^status: in-progress' \"$dir\"/*.md 2>/dev/null | wc -l | tr -d ' '); blocked=$(grep -l '^status: blocked' \"$dir\"/*.md 2>/dev/null | wc -l | tr -d ' '); if [ \"$open\" != \"0\" ] || [ \"$prog\" != \"0\" ] || [ \"$blocked\" != \"0\" ]; then echo \"Backlog: $open open, $prog in-progress, $blocked blocked. Say 'next task' or '/backlog:list' to see them.\"; fi; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

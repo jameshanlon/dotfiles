@@ -58,6 +58,7 @@ All config files live in `config/` and are symlinked into `~/` by `setup.sh`.
 | `config/vimrc` | Vim configuration |
 | `config/vscode/settings.json` | VS Code settings |
 | `config/zshrc` | Zsh/oh-my-zsh configuration |
+| `backlog/` | Claude Code backlog plugin (see `backlog/README.md`) |
 
 ## Post-install steps
 

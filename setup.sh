@@ -87,6 +87,16 @@ else
 fi
 ln -s "$CONFIG/vscode/settings.json" "$VSCODE_SETTINGS_DIR/settings.json"
 
+# Claude Code plugins auto-load from ~/.claude/skills/ as <name>@skills-dir
+CLAUDE_SKILLS="$HOME/.claude/skills"
+mkdir -p "$CLAUDE_SKILLS"
+if [ -d "$CLAUDE_SKILLS/backlog" ] && ! [ -L "$CLAUDE_SKILLS/backlog" ]; then
+  echo "Backing up existing '$CLAUDE_SKILLS/backlog'"
+  date=$(date +"%Y%m%d%H%M%S")
+  mv "$CLAUDE_SKILLS/backlog" "$CLAUDE_SKILLS/backlog.old.$date"
+fi
+ln -sfn "$DIR/backlog" "$CLAUDE_SKILLS/backlog"
+
 # bashrc is copied (not symlinked) - back up any existing one first
 if [ -f "$HOME/.bashrc" ]; then
   cp "$HOME/.bashrc" "$HOME/.bashrc-original"

@@ -1,0 +1,8 @@
+{
+  "name": "backlog",
+  "description": "Manage a project task backlog as one markdown file per task",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jamie"
+  }
+}

@@ -46,6 +46,7 @@ symlinks and downloads appear and that a second run is idempotent. It runs with
 - **config/claude/settings.json** — Claude Code settings (symlinked to `~/.claude/settings.json`).
 - **config/claude/CLAUDE.md** — Global Claude Code rules applied across all projects (symlinked to `~/.claude/CLAUDE.md`).
 - **config/vscode/settings.json** — VS Code settings, symlinked to the platform-specific user settings directory.
+- **backlog/** — Claude Code plugin for a per-repo task backlog. Symlinked to `~/.claude/skills/backlog`, from where it auto-loads as `backlog@skills-dir` in every session.
 
 ## Architecture
 
@@ -55,6 +56,10 @@ structure, so `config/claude/settings.json` → `~/.claude/settings.json`. The
 list of managed files is the `DOTFILES` variable in `setup.sh`; VS Code and
 `bashrc` are handled separately because their destinations do not follow that
 pattern.
+
+`backlog/` is a Claude Code plugin rather than a config file, so it is symlinked
+as a whole directory into `~/.claude/skills/`, which is where Claude Code
+auto-loads plugins from.
 
 The `notes/` directory contains standalone reference markdown files (not
 installed, just for reference).
