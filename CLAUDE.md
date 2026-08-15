@@ -38,11 +38,12 @@ symlinks and downloads appear and that a second run is idempotent. It runs with
 
 ## Key Files
 
-- **config/zshrc** — Primary shell config (Zsh with oh-my-zsh). Defines aliases, PATH, fzf integration, and shell prompt.
-- **config/bashrc** — Bash equivalent. Copied to `~/.bashrc` rather than symlinked; any existing file is saved as `~/.bashrc-original`.
+- **config/zshrc** — Primary shell config (Zsh with oh-my-zsh). Sets `PATH`, the theme and fzf integration.
+- **config/bashrc** — Bash equivalent, plus the git-aware prompt and history settings. Copied to `~/.bashrc` rather than symlinked; any existing file is saved as `~/.bashrc-original`.
+- **config/shrc** — Aliases and environment shared by both shells, sourced from `zshrc` and `bashrc`.
 - **config/vimrc** — Vim config using Vim-Plug for plugins. LSP support via YouCompleteMe + clangd, git via fugitive, fuzzy find via fzf.vim.
 - **config/tmux.conf** — Tmux config with tpm plugins and tmux-mem-cpu-load in the status bar.
-- **config/gitconfig** — Git user identity, delta as pager, and common aliases.
+- **config/gitconfig** — Git user identity, colours, and merge/diff settings.
 - **config/claude/settings.json** — Claude Code settings (symlinked to `~/.claude/settings.json`).
 - **config/claude/CLAUDE.md** — Global Claude Code rules applied across all projects (symlinked to `~/.claude/CLAUDE.md`).
 - **config/vscode/settings.json** — VS Code settings, symlinked to the platform-specific user settings directory.

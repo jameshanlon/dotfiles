@@ -19,7 +19,6 @@ $ git clone git@github.com:jameshanlon/dotfiles.git
 $ cd dotfiles
 $ bash setup.sh
 ```
-Copy the `bashrc`/`zshrc` or parts of it.
 
 ## Prerequisites
 
@@ -53,6 +52,7 @@ All config files live in `config/` and are symlinked into `~/` by `setup.sh`.
 | `config/claude/settings.json` | Claude Code settings |
 | `config/gitconfig` | Git configuration |
 | `config/gvimrc` | GVim configuration |
+| `config/shrc` | Aliases and environment shared by bash and zsh |
 | `config/ssh-agent.bash` | Auto-loading SSH agent script |
 | `config/tmux.conf` | Tmux configuration |
 | `config/vimrc` | Vim configuration |
@@ -62,11 +62,8 @@ All config files live in `config/` and are symlinked into `~/` by `setup.sh`.
 
 ## Post-install steps
 
-- **bashrc**: Must be copied manually (`cp bashrc ~/.bashrc`), it is not
-  symlinked by `setup.sh`.
 - **Tmux plugins**: Open tmux and press `prefix + I` (Ctrl-a + I) to install
   plugins via tpm.
-- **tmux-mem-cpu-load**: The zshrc adds `~/.tmux-mem-cpu-load/build` to `PATH`.
 
 ## Ubuntu/Debian
 
