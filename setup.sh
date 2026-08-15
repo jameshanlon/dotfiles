@@ -14,10 +14,11 @@ Environment variables:
   SKIP_BUILD=1  Skip vim plugin install and building tools via build-tools.sh
 
 What it does:
-  - Symlinks dotfiles from ~/dotfiles/config/ to ~/.<file>
+  - Symlinks dotfiles from config/ to ~/.<file>
   - Backs up existing dotfiles with a .old.<timestamp> suffix
   - Copies bashrc to ~/.bashrc (not symlinked)
   - Symlinks VS Code settings
+  - Symlinks the backlog plugin to ~/.claude/skills/
   - Downloads git-prompt, git-completion, Vim-Plug, fzf
   - Installs Tmux Plugin Manager (tpm)
   - Builds tools from source via build-tools.sh (ninja, bison, flex,
