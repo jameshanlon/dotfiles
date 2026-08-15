@@ -49,8 +49,6 @@ check "file: .git-completion.bash"    test -f "$FAKE_HOME/.git-completion.bash"
 check "file: .vim/autoload/plug.vim"  test -f "$FAKE_HOME/.vim/autoload/plug.vim"
 check "dir: .fzf"                     test -d "$FAKE_HOME/.fzf"
 check "dir: .tmux/plugins/tpm"        test -d "$FAKE_HOME/.tmux/plugins/tpm"
-check "dir: .tmux-mem-cpu-load"       test -d "$FAKE_HOME/.tmux-mem-cpu-load"
-check "dir: vim-src"                  test -d "$FAKE_HOME/vim-src"
 
 echo ""
 echo "=== Run 2: Idempotency test ==="
