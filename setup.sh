@@ -30,7 +30,7 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
   exit 0
 fi
 
-DIR="$HOME/dotfiles"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG="$DIR/config"
 DOTFILES="\
   aspell.en.prepl \
@@ -45,13 +45,9 @@ DOTFILES="\
   zshrc \
   "
 
-if ! [ "$PWD" = "$HOME/dotfiles" ]; then
-  echo "Expecting dotfiles in $HOME"
-  exit 1
-fi
-
 echo "Installing in $HOME"
 echo "Changing to $DIR"
+# build-tools.sh puts its build and download directories under $PWD
 cd "$DIR"
 
 for f in $DOTFILES; do
