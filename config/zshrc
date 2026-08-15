@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 
 # opencode
-export PATH=/Users/jamie/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
