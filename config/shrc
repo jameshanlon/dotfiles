@@ -1,0 +1,22 @@
+# Configuration shared between bash and zsh.
+
+export EDITOR=vim
+
+alias ll='ls -alFH'
+alias lt='ls -ltr'
+alias lr='ls -R'
+alias la='ls -A'
+alias l='ls -CF'
+alias h='history'
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit'
+alias gca='git commit -a'
+alias ssh_agent='eval "$(ssh-agent -s)"'
+
+# Only in interactive shells, since it may prompt for a key passphrase.
+case $- in
+  *i*)
+    [ -f "$HOME/.ssh-agent.bash" ] && . "$HOME/.ssh-agent.bash"
+    ;;
+esac

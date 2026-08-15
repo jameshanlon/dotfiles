@@ -39,6 +39,7 @@ DOTFILES="\
   claude/settings.json \
   gitconfig \
   gvimrc \
+  shrc \
   ssh-agent.bash \
   tmux.conf \
   vimrc \
