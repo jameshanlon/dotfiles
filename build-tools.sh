@@ -8,7 +8,7 @@ set -euo pipefail
 # Default PREFIX is $HOME/.local
 
 : "${PREFIX:=$HOME/.local}"
-: "${JOBS:=$(nproc 2>/dev/null || echo 1)}"
+: "${JOBS:=$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 1)}"
 BUILD_DIR="${PWD}/build-src"
 DL="${PWD}/downloads"
 
