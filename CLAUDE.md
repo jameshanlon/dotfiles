@@ -67,7 +67,9 @@ installed, just for reference).
 
 ## Platform Notes
 
-- **Ubuntu/Debian packages**: `git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd clang-format ninja-build python3-venv python3-pip tree bat`
-- **macOS (Homebrew)**: `wget fd ripgrep eza ncdu cmake vim tmux htop freerdp clang-format ninja fzf ghosttty`
-- macOS uses oh-my-zsh; see README for install command.
-- Modern CLI tools referenced throughout configs: `bat` (cat replacement), `delta` (git diff pager), `eza` (ls replacement), `fd` (find replacement), `ripgrep` (grep replacement), `fzf` (fuzzy finder).
+- The Ubuntu/Debian and Homebrew package lists live in `README.md`; keep them
+  there rather than duplicating them here.
+- macOS uses oh-my-zsh; see README for the install command.
+- Of the modern CLI tools in those lists, only `fzf` is wired into the configs
+  (zsh, bash, tmux and vim). The rest — `bat`, `eza`, `fd`, `ripgrep` — are
+  installed for interactive use and are not referenced by any config.

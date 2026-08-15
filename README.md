@@ -70,7 +70,7 @@ All config files live in `config/` and are symlinked into `~/` by `setup.sh`.
 Useful packages:
 ```
 $ sudo apt-get update
-$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd clang-format ninja-build python3-venv python3-pip tree
+$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd clang-format ninja-build python3-venv python3-pip tree bat
 ```
 
 ## OSX
@@ -78,7 +78,7 @@ $ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ cl
 Install Homebrew and useful packages:
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install wget fd ripgrep ncdu cmake vim tmux htop freerdp clang-format ninja fzf ghosttty
+$ brew install wget fd ripgrep eza ncdu cmake vim tmux htop freerdp clang-format ninja fzf ghostty
 ```
 
 Setup oh-my-zsh (https://ohmyz.sh/#install):
