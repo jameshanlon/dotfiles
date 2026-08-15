@@ -1,4 +1,6 @@
 .DS_Store
 .env
-services/homepage-config/logs
-tmux-mem-cpu-load/
+
+# build-tools.sh output
+build-src/
+downloads/
