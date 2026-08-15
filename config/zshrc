@@ -1,7 +1,6 @@
 # If you come from bash you might have to change your $PATH.
+# build-tools.sh installs vim, tmux and tmux-mem-cpu-load into ~/.local
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$HOME/vim:$PATH
-export PATH=$HOME/tmux-mem-cpu-load/build:$PATH
 export PATH=$HOME/llvm-project/install/bin:$PATH
 export PATH=$HOME/.docker/bin:$PATH
 
