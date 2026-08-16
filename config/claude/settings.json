@@ -144,7 +144,7 @@
       "Bash(systemctl *)",
       "Bash(wget *)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
   "model": "sonnet",
   "enabledPlugins": {
