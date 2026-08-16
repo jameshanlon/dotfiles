@@ -1,5 +1,9 @@
 #!/bin/bash
-set -e
+set -euo pipefail
+
+# Report where a failure happened, since the script is long and partly network
+# and build bound.
+trap 'echo "setup.sh: failed at line $LINENO: $BASH_COMMAND" >&2' ERR
 
 usage() {
   cat <<EOF
@@ -26,7 +30,7 @@ What it does:
 EOF
 }
 
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   usage
   exit 0
 fi
