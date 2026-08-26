@@ -70,7 +70,7 @@ All config files live in `config/` and are symlinked into `~/` by `setup.sh`.
 Useful packages:
 ```
 $ sudo apt-get update
-$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep g++ clangd clang-format ninja-build python3-venv python3-pip tree bat
+$ sudo apt-get install git vim cmake clang-14 python3-dev fd-find ripgrep build-essential m4 gcc g++ clangd clang-format ninja-build python3-venv python3-pip tree bat
 ```
 
 ## OSX
