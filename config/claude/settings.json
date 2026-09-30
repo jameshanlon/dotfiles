@@ -157,5 +157,6 @@
   "remote": {
     "defaultEnvironmentId": "env_018usRGbWeddseaSg72QWUuQ"
   },
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "includeCoAuthoredBy": false
 }
