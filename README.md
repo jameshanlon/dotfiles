@@ -13,7 +13,8 @@ $ git config --global user.name "James Hanlon"
 $ git config --global user.email "mail@jameswhanlon.com"
 ```
 
-Clone and install dotfiles and standard setup:
+Install the [prerequisites](#prerequisites), then clone and install dotfiles
+and standard setup:
 ```
 $ git clone git@github.com:jameshanlon/dotfiles.git
 $ cd dotfiles
@@ -61,9 +62,21 @@ $ make vim VIM_CONFIGURE_FLAGS='--with-tlib=ncursesw LIBS=-ltinfo'
 - `cmake`, a C and C++ compiler (e.g. `gcc`, `g++`)
 - `pkg-config`, and the `libevent` and `ncurses` development headers
 - `bison` and `flex`
+- `python3-dev`, for vim's Python 3 support
 
-These are covered by the Ubuntu/Debian and OSX package lists below. Where a
-distro has no suitable libevent or ncurses, see
+On Ubuntu/Debian:
+```
+$ sudo apt-get install build-essential cmake pkg-config python3-dev \
+    libevent-dev libncurses-dev bison flex
+```
+
+On OSX:
+```
+$ brew install cmake pkg-config libevent ncurses bison flex
+```
+
+The fuller package lists below include these. Where a distro has no suitable
+libevent or ncurses, see
 [notes/building-libraries.md](notes/building-libraries.md) for building them
 from source.
 
