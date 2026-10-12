@@ -4,26 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Purpose
 
-Personal dotfiles repository for James Hanlon. Contains shell configs, editor configs, terminal multiplexer config, and a setup script that symlinks dotfiles into `$HOME`.
+Personal dotfiles repository for James Hanlon. Contains shell configs, editor configs, terminal multiplexer config, and a `Makefile` that symlinks dotfiles into `$HOME` and builds terminal tools from source.
 
 ## Installation
 
 Run from `$HOME/dotfiles/`:
 ```bash
-bash setup.sh
+make
 ```
 
-`setup.sh` symlinks each config into `$HOME`, backing up any existing regular
-file with a timestamp suffix (`.old.<timestamp>`). It also downloads
-git-prompt, git-completion, Vim-Plug and fzf, clones the Tmux Plugin Manager
-(tpm), and runs `build-tools.sh`.
+`make help` lists the targets. The split that matters: `install` symlinks
+configs and needs no network access, `deps` fetches the things the configs
+expect to find in `$HOME`, and `build` compiles tools into `$PREFIX` (default
+`$HOME/.local`). The default target is `install deps vim-plugins`.
 
-Set `SKIP_BUILD=1` to skip `:PlugInstall` and `build-tools.sh`, which is how
-`test-setup.sh` exercises the script.
+Every target is named after the file it produces — a downloaded script, a
+cloned directory, a binary under `$PREFIX/bin` — so repeating it is a no-op and
+deleting that file is what redoes it. There are no stamp files, and nothing is
+keyed to this checkout, so `make build PREFIX=...` is not confused by an
+earlier build into a different prefix.
 
-`build-tools.sh` builds ninja, bison, flex, ncurses, libevent, tmux,
-tmux-mem-cpu-load and vim from source, installing into `$PREFIX` (default
-`$HOME/.local`).
+`build` links against the distro's libevent and ncurses rather than building
+them. For machines whose packages are too old or absent,
+`notes/building-libraries.md` covers building those by hand, and
+`TMUX_CONFIGURE_FLAGS`/`VIM_CONFIGURE_FLAGS` pass the resulting flags through.
 
 ## Testing
 
@@ -31,10 +35,11 @@ tmux-mem-cpu-load and vim from source, installing into `$PREFIX` (default
 bash test-setup.sh
 ```
 
-Runs `setup.sh` twice against a temporary `$HOME` to check the expected
-symlinks and downloads appear and that a second run is idempotent. It runs with
-`SKIP_BUILD=1`, so the checks for build outputs (`.tmux-mem-cpu-load`,
-`vim-src`) fail by design.
+Also available as `make test`. Runs `make install deps` twice against a
+temporary `$HOME` to check the expected symlinks and downloads appear and that
+a second run is idempotent, then checks that a pre-existing regular file is
+backed up rather than clobbered. `vim-plugins` and `build` are left out: they
+need vim and a toolchain.
 
 ## Key Files
 
@@ -47,13 +52,14 @@ symlinks and downloads appear and that a second run is idempotent. It runs with
 - **config/claude/settings.json** — Claude Code settings (symlinked to `~/.claude/settings.json`).
 - **config/claude/CLAUDE.md** — Global Claude Code rules applied across all projects (symlinked to `~/.claude/CLAUDE.md`).
 - **config/vscode/settings.json** — VS Code settings, symlinked to the platform-specific user settings directory.
+- **Makefile** — Installs the configs and builds the terminal tools. The `DOTFILES` variable is the list of managed files; `make print-DOTFILES` reports it, which is how `test-setup.sh` avoids restating it.
 
 ## Architecture
 
 Configs live under `config/` and are symlinked with a leading dot, e.g.
 `config/vimrc` → `~/.vimrc`. Paths with a directory component keep their
 structure, so `config/claude/settings.json` → `~/.claude/settings.json`. The
-list of managed files is the `DOTFILES` variable in `setup.sh`; VS Code and
+list of managed files is the `DOTFILES` variable in the `Makefile`; VS Code and
 `bashrc` are handled separately because their destinations do not follow that
 pattern.
 

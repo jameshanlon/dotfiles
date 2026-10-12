@@ -1,6 +1,6 @@
 .DS_Store
 .env
 
-# build-tools.sh output
+# make build output
 build-src/
 downloads/
