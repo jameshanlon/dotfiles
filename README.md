@@ -116,6 +116,7 @@ All config files live in `config/` and are symlinked into `~/` by `make install`
 | `config/claude/settings.json` | Claude Code settings |
 | `config/gitconfig` | Git configuration |
 | `config/gvimrc` | GVim configuration |
+| `config/paseo/config.json` | Paseo daemon settings |
 | `config/shrc` | Aliases and environment shared by bash and zsh |
 | `config/ssh-agent.bash` | Auto-loading SSH agent script |
 | `config/tmux.conf` | Tmux configuration |

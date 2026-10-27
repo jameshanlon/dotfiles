@@ -34,6 +34,7 @@ DOTFILES := \
   claude/settings.json \
   gitconfig \
   gvimrc \
+  paseo/config.json \
   shrc \
   ssh-agent.bash \
   tmux.conf \

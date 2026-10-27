@@ -51,6 +51,7 @@ need vim and a toolchain.
 - **config/gitconfig** — Git user identity, colours, and merge/diff settings.
 - **config/claude/settings.json** — Claude Code settings (symlinked to `~/.claude/settings.json`).
 - **config/claude/CLAUDE.md** — Global Claude Code rules applied across all projects (symlinked to `~/.claude/CLAUDE.md`).
+- **config/paseo/config.json** — Paseo daemon settings (symlinked to `~/.paseo/config.json`).
 - **config/vscode/settings.json** — VS Code settings, symlinked to the platform-specific user settings directory.
 - **Makefile** — Installs the configs and builds the terminal tools. The `DOTFILES` variable is the list of managed files; `make print-DOTFILES` reports it, which is how `test-setup.sh` avoids restating it.
 
