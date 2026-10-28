@@ -17,3 +17,5 @@
   default = simple
 [diff]
     colorMoved = default
+[init]
+	defaultBranch = main
