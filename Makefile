@@ -41,6 +41,9 @@ DOTFILES := \
   vimrc \
   zshrc
 
+# Every tracked file under the skills directory, so a new skill needs no entry here.
+DOTFILES += $(patsubst $(CONFIG)/%,%,$(shell git ls-files $(CONFIG)/claude/skills))
+
 DEPS := \
   $(HOME)/.git-prompt.sh \
   $(HOME)/.git-completion.bash \

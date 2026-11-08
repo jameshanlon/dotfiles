@@ -114,6 +114,7 @@ All config files live in `config/` and are symlinked into `~/` by `make install`
 | `config/bashrc` | Bash config (copied, not symlinked) |
 | `config/claude/CLAUDE.md` | Claude Code global rules |
 | `config/claude/settings.json` | Claude Code settings |
+| `config/claude/skills/` | Claude Code personal skills |
 | `config/gitconfig` | Git configuration |
 | `config/gvimrc` | GVim configuration |
 | `config/paseo/config.json` | Paseo daemon settings |
