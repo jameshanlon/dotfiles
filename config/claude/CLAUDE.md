@@ -28,6 +28,14 @@ Global rules for Claude Code, applied across all projects.
 - Do not add `Co-authored-by:` trailers or any other signature.
 - Do not commit planning or review documents unless asked to.
 
+## Pull requests
+
+- Describe the change as it stands, in a self-contained way, with evidence that
+  it works.
+- Do not include reviewer notes, next steps or commentary about the
+  development process.
+- Put work a PR leaves undone in a new issue, not the PR description.
+
 ## Workflow
 
 - Once a change is complete, review the patch in detail for opportunities to
